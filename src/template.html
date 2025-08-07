@@ -6,5 +6,503 @@
     <title>Weather App</title>
   </head>
   <body>
+    <!-- Search -->
+    <div id="search-form-container">
+      <button id="settings-btn" class="glassy">
+        <i class="fa-solid fa-gear"></i>
+      </button>
+      <form id="search-form" class="glassy">
+        <button type="submit" id="submit-search-btn">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <input
+          type="text"
+          id="search-input"
+          class=""
+          placeholder="Search City"
+        />
+      </form>
+    </div>
+    <div id="sun"></div>
+    <!-- Header Container -->
+    <div id="header-container">
+      <h1 id="location">Jacksonville</h1>
+      <p id="current-temperature">19°</p>
+      <p id="weather-condition">Sunny</p>
+      <div id="daily-max-min-temperature-container">
+        <div id="max-temperature-container">
+          <p>Max.</p>
+          <p id="daily-max-temperature">28°</p>
+        </div>
+        <div id="min-temperature-container">
+          <p>Min.</p>
+          <p id="daily-min-temperature">13°</p>
+        </div>
+      </div>
+    </div>
+    <!-- Content Container -->
+    <div id="content-container">
+      <!-- Weather Hours -->
+      <div class="bento" id="weather-hours">
+        <p id="description">
+          Similar temperatures continuing with a chance of rain multiple days.
+        </p>
+        <div id="weather-hours-container">
+          <div class="weather-hour">
+            <p>Now</p>
+            <i class="fa-solid fa-sun"></i>
+            <p>28°</p>
+          </div>
+          <div class="weather-hour">
+            <p>5 p.m</p>
+            <i class="fa-solid fa-cloud-sun"></i>
+            <p>27°</p>
+          </div>
+          <div class="weather-hour">
+            <p>6 p.m</p>
+            <i class="fa-solid fa-cloud-sun"></i>
+            <p>26°</p>
+          </div>
+          <div class="weather-hour">
+            <p>7 p.m</p>
+            <i class="fa-solid fa-cloud"></i>
+            <p>25°</p>
+          </div>
+          <div class="weather-hour">
+            <p>8 p.m</p>
+            <i class="fa-solid fa-cloud"></i>
+            <p>24°</p>
+          </div>
+          <div class="weather-hour">
+            <p>9 p.m</p>
+            <i class="fa-solid fa-cloud-moon"></i>
+            <p>23°</p>
+          </div>
+          <div class="weather-hour">
+            <p>10 a.m</p>
+            <i class="fa-solid fa-cloud-moon"></i>
+            <p>22°</p>
+          </div>
+          <div class="weather-hour">
+            <p>11 a.m</p>
+            <i class="fa-solid fa-moon"></i>
+            <p>21°</p>
+          </div>
+          <div class="weather-hour">
+            <p>12</p>
+            <i class="fa-solid fa-moon"></i>
+            <p>20°</p>
+          </div>
+          <div class="weather-hour">
+            <p>1</p>
+            <i class="fa-solid fa-moon"></i>
+            <p>19°</p>
+          </div>
+          <div class="weather-hour">
+            <p>2</p>
+            <i class="fa-solid fa-cloud-moon"></i>
+            <p>19°</p>
+          </div>
+          <div class="weather-hour">
+            <p>3</p>
+            <i class="fa-solid fa-cloud-moon"></i>
+            <p>18°</p>
+          </div>
+          <div class="weather-hour">
+            <p>4</p>
+            <i class="fa-solid fa-cloud"></i>
+            <p>18°</p>
+          </div>
+          <div class="weather-hour">
+            <p>5</p>
+            <i class="fa-solid fa-cloud"></i>
+            <p>19°</p>
+          </div>
+          <div class="weather-hour">
+            <p>6</p>
+            <i class="fa-solid fa-cloud-sun"></i>
+            <p>20°</p>
+          </div>
+          <div class="weather-hour">
+            <p>7</p>
+            <i class="fa-solid fa-cloud-sun"></i>
+            <p>22°</p>
+          </div>
+          <div class="weather-hour">
+            <p>8</p>
+            <i class="fa-solid fa-sun"></i>
+            <p>24°</p>
+          </div>
+          <div class="weather-hour">
+            <p>9</p>
+            <i class="fa-solid fa-sun"></i>
+            <p>26°</p>
+          </div>
+          <div class="weather-hour">
+            <p>10</p>
+            <i class="fa-solid fa-cloud-sun"></i>
+            <p>27°</p>
+          </div>
+          <div class="weather-hour">
+            <p>11</p>
+            <i class="fa-solid fa-cloud-sun"></i>
+            <p>28°</p>
+          </div>
+          <div class="weather-hour">
+            <p>12</p>
+            <i class="fa-solid fa-cloud"></i>
+            <p>29°</p>
+          </div>
+          <div class="weather-hour">
+            <p>1</p>
+            <i class="fa-solid fa-cloud-showers-heavy"></i>
+            <p>28°</p>
+          </div>
+          <div class="weather-hour">
+            <p>2</p>
+            <i class="fa-solid fa-cloud-showers-heavy"></i>
+            <p>27°</p>
+          </div>
+          <div class="weather-hour">
+            <p>3</p>
+            <i class="fa-solid fa-cloud"></i>
+            <p>26°</p>
+          </div>
+        </div>
+      </div>
+      <!-- Alerts -->
+      <div class="bento" id="alerts">
+        <div class="section-title">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <p>WEATHER ALERTS</p>
+        </div>
+        <div class="alerts-container">
+          <div class="alert">
+            <p class="alert-title">Flood Warning</p>
+            <p class="alert-description">
+              Flood Watch issued August 3 at 12:26PM EDT until August 4 at 12:00
+            </p>
+          </div>
+        </div>
+      </div>
+      <!-- Weather Days -->
+      <div class="bento" id="weather-days">
+        <div class="section-title">
+          <i class="fa-regular fa-calendar-days"></i>
+          <p>FORECAST (15 DAYS)</p>
+        </div>
+        <div id="weather-days-container"></div>
+      </div>
+      <!-- Feelslike -->
+      <div class="bento" id="feelslike">
+        <div class="section-title">
+          <i class="fa-solid fa-temperature-low"></i>
+          <p>FEELS LIKE</p>
+        </div>
+        <div class="feelslike-container">
+          <p class="main-value"><span id="feelslike-value">35</span>°</p>
+          <p id="feelslike-description">
+            The thermal sensation is higher than the actual temperature.
+          </p>
+        </div>
+      </div>
+      <!-- UV Index -->
+      <div class="bento" id="uvindex">
+        <div class="section-title">
+          <i class="fa-regular fa-sun"></i>
+          <p>UV INDEX</p>
+        </div>
+        <p id="uvindex-value">0</p>
+        <p id="uvindex-level">Low</p>
+        <div class="uv-meter-container" id="uv-meter-container">
+          <div class="uv-meter-marker" id="uv-meter-marker"></div>
+        </div>
+      </div>
+      <!-- Wind -->
+      <div class="bento" id="wind">
+        <div class="section-title">
+          <i class="fa-solid fa-wind"></i>
+          <p>WIND</p>
+        </div>
+        <div id="wind-container">
+           <div id="wind-expanded-data-container">
+            <div class="wind-expanded-data">
+               <p>Speed</p><p id="wind-speed-extended" class="wind-data">12 mi/h</p>
+            </div>
+             <div class="wind-expanded-data">
+              <p>Gusts</p><p id="wind-speed-extended" class="wind-data">6 mi/h</p>
+            </div>
+             <div class="wind-expanded-data">
+               <p>Direction</p><p id="wind-speed-extended" class="wind-data">312° NW</p>
+            </div>
+          </div>
+          <div class="compass">
+            <div class="compass-stroke main-cardinal">N</div>
+            <div class="compass-stroke"></div>
+            <div class="compass-stroke"></div>
+            <div class="compass-stroke"></div>
+            <div class="compass-stroke cardinal"></div>
+            <div class="compass-stroke"></div>
+            <div class="compass-stroke"></div>
+            <div class="compass-stroke"></div>
+            <div class="compass-stroke main-cardinal">E</div>
+            <div class="compass-stroke"></div>
+            <div class="compass-stroke"></div>
+            <div class="compass-stroke"></div>
+            <div class="compass-stroke cardinal"></div>
+            <div class="compass-stroke"></div>
+            <div class="compass-stroke"></div>
+            <div class="compass-stroke"></div>
+            <div class="compass-stroke main-cardinal">S</div>
+            <div class="compass-stroke"></div>
+            <div class="compass-stroke"></div>
+            <div class="compass-stroke"></div>
+            <div class="compass-stroke cardinal"></div>
+            <div class="compass-stroke"></div>
+            <div class="compass-stroke"></div>
+            <div class="compass-stroke"></div>
+            <div class="compass-stroke main-cardinal">W</div>
+            <div class="compass-stroke"></div>
+            <div class="compass-stroke"></div>
+            <div class="compass-stroke"></div>
+            <div class="compass-stroke cardinal"></div>
+            <div class="compass-stroke"></div>
+            <div class="compass-stroke"></div>
+            <div class="compass-stroke"></div>
+            <div class="compass-center"></div>
+            <div class="compass-arrow" id="wind-direction-compass-arrow">
+              <div class="compass-arrow-bottom">
+                <div class="compass-arrow-tail"></div>
+                <div class="compass-arrow-body-bottom"></div>
+              </div>
+              <div class="compass-arrow-top">
+                <div class="compass-arrow-body-top"></div>
+                <div class="compass-arrow-head"></div>
+              </div>
+            </div>
+            <div id="wind-data-container">
+              <p id="wind-speed">12</p>
+              <p id="wind-speed-units">mi/h</p>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+      <!-- Sunrise / Sunset -->
+      <div class="bento" id="sunrise-sunset">
+        <div class="section-title">
+          <i class="fa-solid fa-sun"></i>
+          <i class="fa-solid fa-arrow-up" style="margin-left: -0.2rem"></i>
+          <p>SUNRISE</p>
+        </div>
+        <p id="sunrise-sunset-time-current" class="main-value">6:40 p.m.</p>
+        <div id="sunrise-sunset-container" class="svg-container">
+          <svg width="100%" height="150" viewBox="-45 0 270 90">
+            <defs>
+              <linearGradient
+                id="segmentGradient"
+                x1="0%"
+                y1="0%"
+                x2="100%"
+                y2="0%"
+              >
+                <stop offset="0%" stop-color="rgba(255, 255, 255, 0.0)" />
+                <stop offset="50%" stop-color="rgba(255, 255, 255, 0.8)" />
+                <stop offset="100%" stop-color="rgba(255, 255, 255, 0.0)" />
+              </linearGradient>
+            </defs>
+            <path
+              class="full-path"
+              d="M -45.00 79.33 
+         L -39.49 79.04 
+         L -33.98 78.65 
+         L -28.47 78.12 
+         L -22.96 77.43 
+         L -17.45 76.53 
+         L -11.94 75.39 
+         L -6.43 73.96 
+         L -0.92 72.21 
+         L 4.59 70.09 
+         L 10.10 67.59 
+         L 15.61 64.70 
+         L 21.12 61.40 
+         L 26.63 57.74 
+         L 32.14 53.75 
+         L 37.65 49.50 
+         L 43.16 45.09 
+         L 48.67 40.64 
+         L 54.18 36.29 
+         L 59.69 32.17 
+         L 65.20 28.45 
+         L 70.71 25.26 
+         L 76.22 22.75 
+         L 81.73 21.00 
+         L 87.24 20.11 
+         L 92.76 20.11 
+         L 98.27 21.00 
+         L 103.78 22.75 
+         L 109.29 25.26 
+         L 114.80 28.45 
+         L 120.31 32.17 
+         L 125.82 36.29 
+         L 131.33 40.64 
+         L 136.84 45.09 
+         L 142.35 49.50 
+         L 147.86 53.75 
+         L 153.37 57.74 
+         L 158.88 61.40 
+         L 164.39 64.70 
+         L 169.90 67.59 
+         L 175.41 70.09 
+         L 180.92 72.21 
+         L 186.43 73.96 
+         L 191.94 75.39 
+         L 197.45 76.53 
+         L 202.96 77.43 
+         L 208.47 78.12 
+         L 213.98 78.65 
+         L 219.49 79.04 
+         L 225.00 79.33"
+            />
+            <path
+              d="M 37.65 49.50 
+         L 43.16 45.09 
+         L 48.67 40.64 
+         L 54.18 36.29 
+         L 59.69 32.17 
+         L 65.20 28.45 
+         L 70.71 25.26 
+         L 76.22 22.75 
+         L 81.73 21.00 
+         L 87.24 20.11 
+         L 92.76 20.11 
+         L 98.27 21.00 
+         L 103.78 22.75 
+         L 109.29 25.26 
+         L 114.80 28.45 
+         L 120.31 32.17 
+         L 125.82 36.29 
+         L 131.33 40.64 
+         L 136.84 45.09 
+         L 142.35 49.50"
+              stroke="url(#segmentGradient)"
+              stroke-width="3"
+              fill="none"
+            />
+          </svg>
+          <div id="sunset-line"></div>
+          <div id="sunset-marker"></div>
+        </div>
+        <p id="sunrise-sunset-time-later">Sunrise 4:53 a.m.</p>
+      </div>
+      <!-- Visibility -->
+      <div class="bento" id="visibility">
+        <div class="section-title">
+          <i class="fa-solid fa-eye"></i>
+          <p>VISIBILITY</p>
+        </div>
+        <p id="visibility-value">9.9 mi</p>
+      </div>
+      <!-- Pressure -->
+      <div class="bento" id="pressure">
+        <div class="section-title">
+          <i class="fa-solid fa-weight-hanging"></i>
+          <p>PRESSURE</p>
+        </div>
+        <div id="pressure-container">
+          <div class="barometer">
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-stroke"></div>
+            <div class="barometer-low">Low</div>
+            <div class="barometer-high">High</div>
+            <div class="barometer-pointer" id="barometer-pointer">
+              <div class="barometer-pointer-mark"></div>
+            </div>
+            <div id="pressure-data-container">
+              <p id="pressure-value">1021</p>
+              <p id="pressure-units">mb</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Humidity -->
+      <div class="bento" id="humidity">
+        <div class="section-title">
+          <i class="fa-solid fa-droplet"></i>
+          <p>HUMIDITY</p>
+        </div>
+        <div id="humidity-container">
+          <p class="main-value"><span id="humidity-value"></span>%</p>
+          <p>The dew point is <span id="dew-value">77</span>°</p>
+        </div>
+      </div>
+      <!-- Moonphase -->
+      <div class="bento" id="moonphase">
+        <div class="section-title">
+          <i class="fa-solid fa-moon"></i>
+          <p>MOON PHASE</p>
+        </div>
+        <div id="moonphase-container">
+          <div class="moon"><div id="moonphase-shade"></div></div>
+        </div>
+      </div>
+      <!-- Air Quality -->
+       <div class="bento" id="air-quality">
+        <div class="section-title">
+          <i class="fa-solid fa-smog"></i>
+          <p>AIR QUALITY</p>
+        </div>
+         <p id="air-quality-value">0</p>
+        <p id="air-quality-level">Low</p>
+        <div class="air-quality-meter-container" id="air-quality-meter-container">
+          <div class="air-quality-meter-marker" id="air-quality-meter-marker"></div>
+        </div>
+       </div>
+       <!-- Precipitation -->
+       <div class="bento" id="precipitation">
+        <div class="section-title">
+          <i class="fa-solid fa-umbrella"></i>
+          <p>PRECIPITATION</p>
+        </div>
+        <p class="main-value" id="precipitation-data-past-6h">0.15in</p>
+        <p class="label-past-precipitation">last 6 h</p>
+        <p class="label-future-precipitation"><span id="precipitation-data-future-24h">0.25in</span> in the next 24 h.</p>
+       </div>
+    </div>
+    
+
+    <div id="spinner-container" class="spinner-container hidden">
+      <div class="spinner"></div>
+    </div>
   </body>
 </html>
