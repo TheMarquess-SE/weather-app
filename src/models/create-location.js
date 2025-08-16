@@ -1,5 +1,5 @@
-import createDay from './createDay';
-import createHour from './createHour';
+import createDay from './create-day';
+import createHour from './create-hour';
 
 export default function createLocation(raw) {
   const {
