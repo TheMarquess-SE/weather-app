@@ -17,10 +17,20 @@ export default function createLocation(raw) {
 
   const currentConditions = createHour(rawCurrentConditions);
   const days = rawDays.map((d) => createDay(d));
-  const alerts = rawAlerts.map((a) => ({
-    title: a.event,
-    description: `${a.headline} ${a.description}`,
-  }));
+  let alerts = [];
+  if (rawAlerts.length > 0) {
+    alerts = rawAlerts.map((a) => ({
+      title: a.event,
+      description: `${a.headline} ${a.description}`,
+    }));
+  } else {
+    alerts = [
+      {
+        title: 'No Active Alerts',
+        description: 'No alerts at this time, safe and sound.',
+      },
+    ];
+  }
 
   const location = {
     address,
