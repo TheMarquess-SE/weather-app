@@ -3,6 +3,7 @@ import alerts from '../components/alerts/alerts';
 import wind from '../components/wind/wind';
 import uvIndex from '../components/uv-index/uv-index';
 import sunrise from '../components/sunrise/sunrise';
+import visibility from '../components/visibility/visibility';
 import formatUnits from '../utils/format-units';
 
 export default function screenController() {
@@ -20,6 +21,7 @@ export default function screenController() {
   const uv = uvIndex();
   const wn = wind();
   const sr = sunrise();
+  const vs = visibility();
 
   function init() {
     // Summary
@@ -59,6 +61,8 @@ export default function screenController() {
       lineEl: document.getElementById('sunset-line'),
       markerEl: document.getElementById('sunset-marker'),
     });
+    // Visibility
+    vs.init({ distanceEl: document.getElementById('visibility-value') });
   }
 
   function toggleSpinner() {
@@ -133,6 +137,8 @@ export default function screenController() {
     );
     // Sunrise
     sr.update(day.sunrise, day.sunset, now, location.timeZone);
+    // Visibility
+    vs.update(format.formatDist(hour.visibility, units.dist), units.dist);
   }
 
   return {
