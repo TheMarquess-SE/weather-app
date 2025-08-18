@@ -20,3 +20,28 @@ export default function formatTime(time, timeZone) {
   }
   return formatedTime;
 }
+
+export function formatTimeShort(time) {
+  const hours = time.getHours();
+  const minutes = time.getMinutes();
+
+  let formatedTime = '';
+  if (hours === 0) {
+    formatedTime += '12';
+  } else if (hours <= 12) {
+    formatedTime += hours;
+    if (minutes.toString().length === 1) {
+      formatedTime += `:0${minutes} a.m.`;
+    } else {
+      formatedTime += `:${minutes} a.m.`;
+    }
+  } else {
+    formatedTime += hours - 12;
+    if (minutes.toString().length === 1) {
+      formatedTime += `:0${minutes} p.m.`;
+    } else {
+      formatedTime += `:${minutes} p.m.`;
+    }
+  }
+  return formatedTime;
+}

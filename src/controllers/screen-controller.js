@@ -2,6 +2,7 @@ import summary from '../components/summary/summary';
 import alerts from '../components/alerts/alerts';
 import wind from '../components/wind/wind';
 import uvIndex from '../components/uv-index/uv-index';
+import sunrise from '../components/sunrise/sunrise';
 import formatUnits from '../utils/format-units';
 
 export default function screenController() {
@@ -18,6 +19,7 @@ export default function screenController() {
   const al = alerts();
   const uv = uvIndex();
   const wn = wind();
+  const sr = sunrise();
 
   function init() {
     // Summary
@@ -47,6 +49,15 @@ export default function screenController() {
       arrowEl: document.getElementById('wind-direction-compass-arrow'),
       mainSpeedEl: document.getElementById('wind-speed'),
       mainSpeedUnitsEl: document.getElementById('wind-speed-units'),
+    });
+    // Sunrise
+    sr.init({
+      mainEl: document.getElementById('sunrise-sunset-time-current'),
+      secondEl: document.getElementById('sunrise-sunset-time-later'),
+      titleEl: document.getElementById('sunrise-sunset-title'),
+      iconEl: document.getElementById('sunrise-sunset-icon'),
+      lineEl: document.getElementById('sunset-line'),
+      markerEl: document.getElementById('sunset-marker'),
     });
   }
 
@@ -99,6 +110,7 @@ export default function screenController() {
 
   function update(state) {
     const { hour, day, location, units } = state;
+    const now = Date.now();
 
     // Summary
     sum.updateLocation(
@@ -119,6 +131,8 @@ export default function screenController() {
       hour.windDir,
       units.wind,
     );
+    // Sunrise
+    sr.update(day.sunrise, day.sunset, now, location.timeZone);
   }
 
   return {
