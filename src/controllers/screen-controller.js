@@ -1,4 +1,5 @@
 import summary from '../components/summary/summary';
+import alerts from '../components/alerts/alerts';
 import wind from '../components/wind/wind';
 import uvIndex from '../components/uv-index/uv-index';
 import formatUnits from '../utils/format-units';
@@ -14,6 +15,7 @@ export default function screenController() {
   // create modules
   const format = formatUnits();
   const sum = summary();
+  const al = alerts();
   const uv = uvIndex();
   const wn = wind();
 
@@ -25,6 +27,10 @@ export default function screenController() {
       conditionsEl: document.getElementById('weather-condition'),
       tempMaxEl: document.getElementById('daily-max-temperature'),
       tempMinEl: document.getElementById('daily-min-temperature'),
+    });
+    // Alerts
+    al.init({
+      alertsEl: document.getElementById('alerts-container'),
     });
     // UV Index
     uv.init({
@@ -102,6 +108,8 @@ export default function screenController() {
       format.formatTemp(day.tempMax, units.temp),
       format.formatTemp(day.tempMin, units.temp),
     );
+    // Alerts
+    al.update(location.alerts);
     // UV Index
     uv.update(hour.uvIndex);
     // Wind
