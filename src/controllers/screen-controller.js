@@ -4,6 +4,7 @@ import wind from '../components/wind/wind';
 import uvIndex from '../components/uv-index/uv-index';
 import sunrise from '../components/sunrise/sunrise';
 import visibility from '../components/visibility/visibility';
+import pressure from '../components/pressure/pressure';
 import formatUnits from '../utils/format-units';
 
 export default function screenController() {
@@ -22,6 +23,7 @@ export default function screenController() {
   const wn = wind();
   const sr = sunrise();
   const vs = visibility();
+  const ps = pressure();
 
   function init() {
     // Summary
@@ -63,6 +65,12 @@ export default function screenController() {
     });
     // Visibility
     vs.init({ distanceEl: document.getElementById('visibility-value') });
+    // Pressure
+    ps.init({
+      pointerEl: document.getElementById('barometer-pointer'),
+      pressureEl: document.getElementById('pressure-value'),
+      unitsEl: document.getElementById('pressure-units'),
+    });
   }
 
   function toggleSpinner() {
@@ -139,6 +147,13 @@ export default function screenController() {
     sr.update(day.sunrise, day.sunset, now, location.timeZone);
     // Visibility
     vs.update(format.formatDist(hour.visibility, units.dist), units.dist);
+    // Pressure
+    ps.update(
+      format.formatPres(hour.pressure, units.pres),
+      format.formatPres(950, units.pres),
+      format.formatPres(1050, units.pres),
+      units.pres,
+    );
   }
 
   return {
