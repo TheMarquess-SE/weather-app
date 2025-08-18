@@ -57,14 +57,37 @@
   box-sizing: border-box;
 }
 
+html{
+   background: #4d9de0;
+}
+
+
 body {
   min-height: 100vh;
   font-family: "Roboto";
   color: var(--text-secondary-color);
-  background-color: #f3f4f6; /* A light gray background */
   margin: 0;
   padding: 4rem 0 8rem 0;
   background: var(--bg-day);
+}
+
+/* Author Signature */
+.author-signature-container {
+  max-width: 1200px;
+  margin: 4rem auto 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-family: "Playwrite AU QLD";
+}
+.signature-name {
+  color: #fff;
+  font-style: italic;
+}
+.signature-aka {
+  font-family: "Playwrite AU QLD";
+  color: #fff;
 }
 
 /* Reusable */
@@ -90,18 +113,12 @@ body {
   gap: 0.5rem;
   margin-bottom: 0.5rem;
 }
-
-/* SEARCH */
-
-#search-form-container {
-  width: 90%;
-  max-width: 1300px;
-  margin: 0 auto 0 auto;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+.hidden{
+  display: none!important;
 }
+
+/* UNITS SETTINGS */
+
 #settings-btn {
   cursor: pointer;
   height: 50px;
@@ -113,6 +130,117 @@ body {
   justify-content: center;
   align-items: center;
 }
+
+#close-units-settings-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+
+
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  font-size: 1.3rem;
+  color: #fff;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  background-color: transparent;
+}
+#close-units-settings-btn:hover {
+  color: rgba(255, 255, 255, 0.4);
+}
+#settings-btn-placeholder{
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+}
+
+#units-settings {
+  width: 200px;
+  height: 550px;
+  
+
+  display: flex;
+  flex-direction: column;
+}
+
+.unit-settings {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  height: 100px;
+  border-bottom: 1px solid var(--text-tertiary-color);
+}
+.unit-settings:last-of-type {
+  border-bottom: none;
+}
+
+.units-settings-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+.units-settings-selection {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 1rem;
+}
+.units-option {
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 700;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(30px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 4px 6px rgba(0, 0, 0, 0.1);
+
+  transition: all 0.2s ease;
+}
+
+.units-option:hover {
+  border: 3px solid #fff;
+}
+
+.selected-unit{
+  border: 3px solid #fff;
+}
+
+/* SEARCH */
+#search-form-container {
+  width: 90%;
+  height: 70px;
+  max-width: 1300px;
+  margin: 0 auto 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: sticky;
+  top: 4rem;
+  z-index: 4;
+}
+
 #search-form {
   width: 300px;
   height: 50px;
@@ -149,19 +277,29 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: #fff;
+
+  position: relative;
+  z-index: 1;
 }
 #location {
   font-family: "Playwrite AU QLD";
-  font-size: var(--font-size-subtitle);
-  font-weight: 400;
+  width: 100%;
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 1.7;
+  color: #fff;
 }
 #current-temperature {
   font-size: var(--font-size-title);
   font-weight: 300;
+  color: #fff;
 }
 #weather-condition {
   font-size: var(--font-size-regular);
   font-weight: 600;
+  opacity: 0.8;
 }
 #daily-max-min-temperature-container {
   display: flex;
@@ -169,6 +307,7 @@ body {
   gap: 1rem;
   font-size: var(--font-size-secondary);
   font-weight: 500;
+  opacity: 0.6;
 }
 #max-temperature-container {
   display: inherit;
@@ -207,7 +346,9 @@ body {
   padding: 15px;
 }
 
-.bento:not(#weather-days):not(#weather-hours):not(#alerts):not(#wind):not(#air-quality) {
+.bento:not(#weather-days):not(#weather-hours):not(#alerts):not(#wind):not(
+    #air-quality
+  ) {
   min-width: 180px;
   max-width: 200px;
 }
@@ -227,7 +368,7 @@ body {
 #feelslike {
   grid-area: fl;
 }
-#uvindex {
+#uv-index {
   grid-area: uv;
 }
 #alerts {
@@ -248,11 +389,11 @@ body {
 #moonphase {
   grid-area: mp;
 }
-#air-quality{
+#air-quality {
   grid-area: aq;
-   min-width: 400px;
+  min-width: 400px;
 }
-#precipitation{
+#precipitation {
   grid-area: pr;
 }
 
@@ -275,15 +416,28 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  justify-content: space-between;
 
+  height: 100px !important;
   font-size: var(--font-size-secondary);
   font-weight: 800;
 }
 .weather-hour p {
-  width: 65px !important;
+  width: 70px;
   text-align: center;
 }
+.weather-hour-icon-precprob {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.weather-hour-icon-precprob p {
+  text-align: center;
+  font-size: 1rem;
+  color: var(--text-tertiary-color);
+}
+
 /* ALERTS */
 .alerts-container {
   height: 120px;
@@ -335,16 +489,31 @@ body {
 .weather-day > p {
   width: 60px;
 }
+.day-precip-prob {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.4);
+  width: 20px !important;
+}
+.precipProb-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
 .min-max-day-container {
   width: 220px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   gap: 1rem;
 }
 .min-max-day-container p:first-of-type {
   color: var(--text-tertiary-color);
-  width: 30px;
+  width: 40px;
+}
+.min-max-day-container p:last-of-type {
+  width: 40px;
 }
 
 .temp-meter-container {
@@ -367,16 +536,16 @@ body {
 #wind-container {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;  
+  justify-content: space-between;
   align-items: center;
 }
-#wind-expanded-data-cointainer{
+#wind-expanded-data-cointainer {
   display: flex;
   flex-direction: column;
   align-items: space-between;
   justify-content: center;
 }
-.wind-expanded-data{
+.wind-expanded-data {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -387,10 +556,10 @@ body {
   height: 40px;
   border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
-.wind-expanded-data:last-of-type{
+.wind-expanded-data:last-of-type {
   border-bottom: none;
 }
-.wind-data{
+.wind-data {
   color: var(--text-tertiary-color);
 }
 
@@ -624,11 +793,11 @@ p:has(#feelslike-value) {
   text-wrap: balance;
 }
 /* UV INDEX */
-#uvindex-value {
+#uv-index-value {
   font-size: var(--font-size-subtitle);
   font-weight: 500;
 }
-#uvindex-level {
+#uv-index-level {
   font-size: var(--font-size-regular);
   font-weight: 400;
   margin-bottom: 1rem;
@@ -709,8 +878,8 @@ svg {
   top: 50px;
 }
 #sunset-marker {
-  width: 15px;
-  height: 15px;
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
   /* Base color and subtle radial gradient for spherical depth */
   background: radial-gradient(circle at 30% 30%, #ffffff, #f0f0f0);
@@ -721,8 +890,8 @@ svg {
     /* Medium outer glow */ 0 0 30px 10px rgba(255, 255, 255, 0.2); /* Fainter, wider glow */
 
   position: absolute;
-  left: 100px;
-  top: 13.7px;
+  left: 93px;
+  top: 13px;
 }
 
 /* VISIBILITY */
@@ -911,34 +1080,35 @@ p:has(#dew-value) {
 
 /* MOONPHASE */
 #moonphase-container {
- width: 100%;
- height: 150px;
- display: flex;
- flex-direction: column;
- align-items: center;
- 
-}     
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .moon {
-  width: 120px;
-  height: 120px;
-  background-color: rgba(255, 255, 255, 0.6);
+  width: 100px;
+  height: 100px;
+  background-color: rgb(230, 230, 230);
   border-radius: 50%;
   position: relative;
   overflow: hidden;
- 
+  margin-bottom: 0.5rem;
+}
+#moonphase-name {
+  font-size: 1.2rem;
+  color: var(--text-tertiary-color);
+  font-weight: 600;
 }
 
 #moonphase-shade {
-  width: 120px;
-  height: 120px;
-  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  background-color: rgb(179, 179, 179);
   border-radius: 50%;
   position: absolute;
   top: 0;
   left: 0;
-  transform: translateX(45px); /* Shift this to simulate moon phase */
-  mix-blend-mode: multiply;
-  opacity: 0.7;
 }
 /* AIR QUALITY */
 #air-quality-value {
@@ -959,15 +1129,15 @@ p:has(#dew-value) {
 
   /* The continuous gradient that represents the full scale */
   background: linear-gradient(
-  to right,
-  #00e400 0%,     /* Good - Green (0-50) */
-  #ffff00 16.6%,   /* Moderate - Yellow (51-100) */
-  #ff7e00 33.3%,   /* Unhealthy for Sensitive Groups - Orange (101-150) */
-  #ff0000 50%,     /* Unhealthy - Red (151-200) */
-  #8f3e97 66.6%,   /* Very Unhealthy - Purple (201-300) */
-  #7e0023 83.3%,   /* Hazardous - Maroon (301+) */
-  #7e0023 100%
-);
+    to right,
+    #00e400 0%,
+    /* Good - Green (0-50) */ #ffff00 16.6%,
+    /* Moderate - Yellow (51-100) */ #ff7e00 33.3%,
+    /* Unhealthy for Sensitive Groups - Orange (101-150) */ #ff0000 50%,
+    /* Unhealthy - Red (151-200) */ #8f3e97 66.6%,
+    /* Very Unhealthy - Purple (201-300) */ #7e0023 83.3%,
+    /* Hazardous - Maroon (301+) */ #7e0023 100%
+  );
 }
 
 /* The dot that indicates the current UV Index */
@@ -985,94 +1155,134 @@ p:has(#dew-value) {
   transition: transform 1s ease-in-out; /* Smooth movement */
 }
 /* PRECIPITATION */
-.label-past-precipitation{
+.label-past-precipitation {
   font-size: 1.2rem;
   font-weight: 500;
 }
-.label-future-precipitation{
+.label-future-precipitation {
   margin-top: 2.5rem;
 }
 /* RESPONSIVE */
 
 
 
-@media (max-width: 1285px) {
+@media (max-width: 1360px) {
+  #search-form-container{
+    width: 860px!important;
+  }
   #content-container {
     max-width: 860px;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 200px 200px 200px 200px 200px;
+    grid-template-rows: repeat(6, 200px);
     grid-auto-rows: min-content;
     grid-template-areas:
       "wh wh wh wh"
       "wd wd al al"
-      "wd wd wi fl"
-      "sr vs uv ps"
-      "hm mp aa aa";
+      "wd wd wi wi"
+      "wd wd uv ps"
+      "hm sr aq aq"
+      "fl pr mp vs";
   }
   #weather-days {
     width: 800;
   }
 }
 
-@media (max-width: 865px) {
+@media (max-width: 890px) {
   #content-container {
     max-width: 640px;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: repeat(7, 200px);
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: repeat(8, 200px);
     grid-auto-rows: min-content;
 
     grid-template-areas:
       "wh wh wh"
       "wd wd wd"
       "wd wd wd"
-      "al al wi"
-      "fl sr vs"
+      "al al fl"
+      "wi wi sr"
       "uv ps hm"
-      "mp aa aa";
+      "aq aq vs"
+      "mp pr aa";
+  }
+  .author-signature-container{
+    width: 80%;
+  }
+  .signature-intro{
+    text-align: center;
+    line-height: 2;
   }
 }
-@media (max-width: 635px) {
+@media (max-width: 690px) {
+  #search-form-container{
+    width: 410px!important;
+  }
   #content-container {
-    max-width: 420px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(8, 200px);
+    width: 410px!important;
+    grid-template-columns: 200px 200px;
+    grid-template-rows: repeat(10, 200px);
     grid-auto-rows: min-content;
+    grid-gap: 0.5rem;
 
     grid-template-areas:
       "wh wh"
       "wd wd"
       "wd wd"
       "al al"
-      "wi fl"
-      "sr vs"
+      "wi wi"
+      "fl sr"
+      "aq aq"
       "uv ps"
-      "hm mp";
+      "hm vs"
+      "pr mp";
+  }
+  .signature-intro{
+    text-align: center;
+    line-height: 2;
   }
 }
 
 @media (max-width: 450px) {
+  #search-form-container{
+    width: 400px!important;
+  }
   #content-container {
-    max-width: 360px;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(8, 180px);
+    width: 400px!important;
+    margin-left: auto;
+    grid-template-columns: 200px 200px;
+    grid-template-rows: repeat(10, 200px);
     grid-auto-rows: min-content;
-
+    grid-gap: 0.5rem;
     grid-template-areas:
       "wh wh"
       "wd wd"
       "wd wd"
       "al al"
-      "wi fl"
-      "sr vs"
+      "wi wi"
+      "fl sr"
       "uv ps"
-      "hm mp";
+      "aq aq"
+      "hm pr"
+      "vs mp";
   }
-  .bento:not(#weather-days):not(#weather-hours):not(#alerts) {
-    min-width: 160px;
-    max-width: 180px;
+
+  .bento:not(#weather-days):not(#weather-hours):not(#alerts):not(#wind):not(#air-quality) {
+    width: 190px;
   }
   #weather-days {
-    min-width: 320px;
+    width: 400px;
+  }
+  #alerts{
+    width: 400px;
+  }
+  #wind{
+    width: 400px;
+  }
+  .wind-expanded-data{
+    width: 200px;
+  }
+  #air-quality{
+    width: 400px;
   }
   #description {
     font-size: 1rem;
@@ -1083,6 +1293,7 @@ p:has(#dew-value) {
     margin-bottom: 0.8rem;
   }
   #weather-hours {
+    width: 400px;
     margin-top: 0.5rem;
     /* --- CSS to hide the scrollbar --- */
 
@@ -1098,7 +1309,7 @@ p:has(#dew-value) {
     -ms-overflow-style: none;
   }
   .svg-container {
-    width: 170px;
+    width: 190px;
     margin-bottom: 0;
   }
 }
@@ -1136,9 +1347,56 @@ p:has(#dew-value) {
   height: 100px;
   border-radius: 50%;
   position: fixed;
-
   left: 20%;
+  top: 20%;
 
+  background: radial-gradient(
+    circle,
+    #fffdf5 0%,
+    /* pale yellow-white */ #fff6e0 30%,
+    /* warm cream */ #ffe6b8 70%,
+    /* soft gold */ #ffd07a 100% /* golden-orange edge */
+  );
+
+  box-shadow: 0 0 40px 15px rgba(255, 243, 200, 0.9),
+    0 0 80px 30px rgba(255, 220, 150, 0.65),
+    0 0 160px 60px rgba(255, 180, 90, 0.4); /* deeper warm glow */
+
+  filter: contrast(1.05) brightness(1.15);
+  z-index: 0;
+}
+
+#sun::after {
+  content: "";
+  position: absolute;
+  inset: -25%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 236, 200, 0.35) 0%,
+    /* light warm glow */ rgba(255, 225, 180, 0.15) 50%,
+    /* golden haze */ rgba(255, 225, 180, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(10px);
+}
+
+#sun3 {
+  background: radial-gradient(
+    circle at 30% 30%,
+    #fffff0,
+    #ffddaa,
+    #ffcc80
+  ); /* Very light yellow to soft orange */
+
+  /* Multiple box-shadows for a soft, diffused halo effect, with less saturation */
+  box-shadow: 0 0 20px 10px rgba(255, 230, 180, 0.8),
+    /* Soft, light inner glow */ 0 0 50px 25px rgba(255, 200, 100, 0.5),
+    /* Wider, diffused golden glow */ 0 0 100px 50px rgba(255, 170, 50, 0.2); /* Large, very faint outer halo */
+}
+
+#sun2 {
   /* Base color and subtle radial gradient for spherical depth */
   background: radial-gradient(circle at 30% 30%, #ffffff, #f0f0f0);
 
