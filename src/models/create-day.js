@@ -11,13 +11,13 @@ export default function createDay(raw) {
     temp: rawTemp,
     windgust: rawWindGust,
     windspeed: rawWindSpeed,
+    winddir: rawWindDir,
     precipcover: rawPrecipCover,
     tempmax: rawTempMax,
     tempmin: rawTempMin,
     visibility: rawVisibility,
     aqius: airQuality,
     uvindex: uvIndex,
-    winddir: windDir,
     snowdepth: snowDepth,
     moonphase: moonPhase,
     datetimeEpoch: dateTime,
@@ -44,6 +44,7 @@ export default function createDay(raw) {
   const precip = Number((rawPrecip ?? 0).toFixed(2));
   const windGust = Math.round(rawWindGust ?? 0);
   const windSpeed = Math.round(rawWindSpeed ?? 0);
+  const windDir = Math.round(rawWindDir ?? 0);
   const precipCover = Math.round(rawPrecipCover ?? 0);
   const visibility = Math.round(rawVisibility ?? 0);
 

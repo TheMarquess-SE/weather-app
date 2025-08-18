@@ -10,10 +10,10 @@ export default function createHour(raw) {
     temp: rawTemp,
     windgust: rawWindGust,
     windspeed: rawWindSpeed,
+    winddir: rawWindDir,
     visibility: rawVisibility,
     aqius: airQuality,
     uvindex: uvIndex,
-    winddir: windDir,
     snowdepth: snowDepth,
     datetimeEpoch: dateTime,
     sunriseEpoch: sunrise,
@@ -33,6 +33,7 @@ export default function createHour(raw) {
   const windGust = Math.round(rawWindGust ?? 0);
   const windSpeed = Math.round(rawWindSpeed ?? 0);
   const visibility = Math.round(rawVisibility ?? 0);
+  const windDir = Math.round(rawWindDir ?? 0);
   const precip = Number((rawPrecip ?? 0).toFixed(2));
 
   const hour = {
