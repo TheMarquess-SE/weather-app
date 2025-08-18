@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Playwrite+AU+QLD:wght@100..400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+AU+QLD:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
 
 :root {
   --bg-color-clear-day-top: #74b9ff;
@@ -57,14 +57,13 @@
   box-sizing: border-box;
 }
 
-html{
-   background: #4d9de0;
+html {
+  background: #4d9de0;
 }
-
 
 body {
   min-height: 100vh;
-  font-family: "Roboto";
+  font-family: 'Roboto';
   color: var(--text-secondary-color);
   margin: 0;
   padding: 4rem 0 8rem 0;
@@ -79,14 +78,22 @@ body {
   flex-direction: row;
   justify-content: center;
   font-size: 1.3rem;
-  font-family: "Playwrite AU QLD";
+  font-family: 'Poppins';
+  color: rgba(255, 255, 255, 0.7);
 }
-.signature-name {
+.author-signature{
+  text-align: center;
+}
+.signature {
   color: #fff;
-  font-style: italic;
+  font-weight: 700;
 }
-.signature-aka {
-  font-family: "Playwrite AU QLD";
+.link {
+  color: rgba(255, 255, 255, 0.85);
+  text-underline-offset: 3px;
+  transition: all 0.5s ease;
+}
+.link:hover {
   color: #fff;
 }
 
@@ -95,7 +102,8 @@ body {
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(30px);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
     0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   padding: 24px;
@@ -113,8 +121,8 @@ body {
   gap: 0.5rem;
   margin-bottom: 0.5rem;
 }
-.hidden{
-  display: none!important;
+.hidden {
+  display: none !important;
 }
 
 /* UNITS SETTINGS */
@@ -136,7 +144,6 @@ body {
   height: 40px;
   border-radius: 50%;
 
-
   border: none;
   cursor: pointer;
   position: absolute;
@@ -155,7 +162,7 @@ body {
 #close-units-settings-btn:hover {
   color: rgba(255, 255, 255, 0.4);
 }
-#settings-btn-placeholder{
+#settings-btn-placeholder {
   width: 50px;
   height: 50px;
   background-color: transparent;
@@ -164,7 +171,6 @@ body {
 #units-settings {
   width: 200px;
   height: 550px;
-  
 
   display: flex;
   flex-direction: column;
@@ -212,7 +218,8 @@ body {
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(30px);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
     0 4px 6px rgba(0, 0, 0, 0.1);
 
   transition: all 0.2s ease;
@@ -222,7 +229,7 @@ body {
   border: 3px solid #fff;
 }
 
-.selected-unit{
+.selected-unit {
   border: 3px solid #fff;
 }
 
@@ -283,7 +290,7 @@ body {
   z-index: 1;
 }
 #location {
-  font-family: "Playwrite AU QLD";
+  font-family: 'Playwrite AU QLD';
   width: 100%;
   font-size: 3rem;
   font-weight: 600;
@@ -329,10 +336,10 @@ body {
   grid-template-rows: repeat(4, minmax(auto, 200px));
 
   grid-template-areas:
-    "wh wh wh wh al al"
-    "wd wd wi wi sr vs"
-    "wd wd uv ps hm mp"
-    "wd wd fl aq aq pr";
+    'wh wh wh wh al al'
+    'wd wd wi wi sr vs'
+    'wd wd uv ps hm mp'
+    'wd wd fl aq aq pr';
 }
 
 /* Common styles for all bento items */
@@ -340,15 +347,14 @@ body {
   background-color: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(30px);
   border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05),
     0 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   padding: 15px;
 }
 
-.bento:not(#weather-days):not(#weather-hours):not(#alerts):not(#wind):not(
-    #air-quality
-  ) {
+.bento:not(#weather-days):not(#weather-hours):not(#alerts):not(#wind):not(#air-quality) {
   min-width: 180px;
   max-width: 200px;
 }
@@ -885,7 +891,8 @@ svg {
   background: radial-gradient(circle at 30% 30%, #ffffff, #f0f0f0);
 
   /* Multiple box-shadows for the glow effect */
-  box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.8),
+  box-shadow:
+    0 0 5px 2px rgba(255, 255, 255, 0.8),
     /* Inner bright glow */ 0 0 15px 5px rgba(255, 255, 255, 0.5),
     /* Medium outer glow */ 0 0 30px 10px rgba(255, 255, 255, 0.2); /* Fainter, wider glow */
 
@@ -1164,11 +1171,9 @@ p:has(#dew-value) {
 }
 /* RESPONSIVE */
 
-
-
 @media (max-width: 1360px) {
-  #search-form-container{
-    width: 860px!important;
+  #search-form-container {
+    width: 860px !important;
   }
   #content-container {
     max-width: 860px;
@@ -1176,12 +1181,12 @@ p:has(#dew-value) {
     grid-template-rows: repeat(6, 200px);
     grid-auto-rows: min-content;
     grid-template-areas:
-      "wh wh wh wh"
-      "wd wd al al"
-      "wd wd wi wi"
-      "wd wd uv ps"
-      "hm sr aq aq"
-      "fl pr mp vs";
+      'wh wh wh wh'
+      'wd wd al al'
+      'wd wd wi wi'
+      'wd wd uv ps'
+      'hm sr aq aq'
+      'fl pr mp vs';
   }
   #weather-days {
     width: 800;
@@ -1196,74 +1201,74 @@ p:has(#dew-value) {
     grid-auto-rows: min-content;
 
     grid-template-areas:
-      "wh wh wh"
-      "wd wd wd"
-      "wd wd wd"
-      "al al fl"
-      "wi wi sr"
-      "uv ps hm"
-      "aq aq vs"
-      "mp pr aa";
+      'wh wh wh'
+      'wd wd wd'
+      'wd wd wd'
+      'al al fl'
+      'wi wi sr'
+      'uv ps hm'
+      'aq aq vs'
+      'mp pr aa';
   }
-  .author-signature-container{
+  .author-signature-container {
     width: 80%;
   }
-  .signature-intro{
+  .signature-intro {
     text-align: center;
     line-height: 2;
   }
 }
 @media (max-width: 690px) {
-  #search-form-container{
-    width: 410px!important;
+  #search-form-container {
+    width: 410px !important;
   }
   #content-container {
-    width: 410px!important;
+    width: 410px !important;
     grid-template-columns: 200px 200px;
     grid-template-rows: repeat(10, 200px);
     grid-auto-rows: min-content;
     grid-gap: 0.5rem;
 
     grid-template-areas:
-      "wh wh"
-      "wd wd"
-      "wd wd"
-      "al al"
-      "wi wi"
-      "fl sr"
-      "aq aq"
-      "uv ps"
-      "hm vs"
-      "pr mp";
+      'wh wh'
+      'wd wd'
+      'wd wd'
+      'al al'
+      'wi wi'
+      'fl sr'
+      'aq aq'
+      'uv ps'
+      'hm vs'
+      'pr mp';
   }
-  .signature-intro{
+  .signature-intro {
     text-align: center;
     line-height: 2;
   }
 }
 
 @media (max-width: 450px) {
-  #search-form-container{
-    width: 400px!important;
+  #search-form-container {
+    width: 400px !important;
   }
   #content-container {
-    width: 400px!important;
+    width: 400px !important;
     margin-left: auto;
     grid-template-columns: 200px 200px;
     grid-template-rows: repeat(10, 200px);
     grid-auto-rows: min-content;
     grid-gap: 0.5rem;
     grid-template-areas:
-      "wh wh"
-      "wd wd"
-      "wd wd"
-      "al al"
-      "wi wi"
-      "fl sr"
-      "uv ps"
-      "aq aq"
-      "hm pr"
-      "vs mp";
+      'wh wh'
+      'wd wd'
+      'wd wd'
+      'al al'
+      'wi wi'
+      'fl sr'
+      'uv ps'
+      'aq aq'
+      'hm pr'
+      'vs mp';
   }
 
   .bento:not(#weather-days):not(#weather-hours):not(#alerts):not(#wind):not(#air-quality) {
@@ -1272,16 +1277,16 @@ p:has(#dew-value) {
   #weather-days {
     width: 400px;
   }
-  #alerts{
+  #alerts {
     width: 400px;
   }
-  #wind{
+  #wind {
     width: 400px;
   }
-  .wind-expanded-data{
+  .wind-expanded-data {
     width: 200px;
   }
-  #air-quality{
+  #air-quality {
     width: 400px;
   }
   #description {
@@ -1358,7 +1363,8 @@ p:has(#dew-value) {
     /* soft gold */ #ffd07a 100% /* golden-orange edge */
   );
 
-  box-shadow: 0 0 40px 15px rgba(255, 243, 200, 0.9),
+  box-shadow:
+    0 0 40px 15px rgba(255, 243, 200, 0.9),
     0 0 80px 30px rgba(255, 220, 150, 0.65),
     0 0 160px 60px rgba(255, 180, 90, 0.4); /* deeper warm glow */
 
@@ -1367,7 +1373,7 @@ p:has(#dew-value) {
 }
 
 #sun::after {
-  content: "";
+  content: '';
   position: absolute;
   inset: -25%;
   border-radius: 50%;
@@ -1391,7 +1397,8 @@ p:has(#dew-value) {
   ); /* Very light yellow to soft orange */
 
   /* Multiple box-shadows for a soft, diffused halo effect, with less saturation */
-  box-shadow: 0 0 20px 10px rgba(255, 230, 180, 0.8),
+  box-shadow:
+    0 0 20px 10px rgba(255, 230, 180, 0.8),
     /* Soft, light inner glow */ 0 0 50px 25px rgba(255, 200, 100, 0.5),
     /* Wider, diffused golden glow */ 0 0 100px 50px rgba(255, 170, 50, 0.2); /* Large, very faint outer halo */
 }
@@ -1401,7 +1408,8 @@ p:has(#dew-value) {
   background: radial-gradient(circle at 30% 30%, #ffffff, #f0f0f0);
 
   /* Multiple box-shadows for the glow effect */
-  box-shadow: 0 0 5px 2px rgba(255, 255, 255, 0.8),
+  box-shadow:
+    0 0 5px 2px rgba(255, 255, 255, 0.8),
     /* Inner bright glow */ 0 0 15px 5px rgba(255, 255, 255, 0.5),
     /* Medium outer glow */ 0 0 30px 10px rgba(255, 255, 255, 0.2); /* Fainter, wider glow */
 }
