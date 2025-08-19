@@ -18,8 +18,8 @@ export default function createHour(raw) {
     datetimeEpoch: dateTime,
     sunriseEpoch: sunrise,
     sunsetEpoch: sunset,
+    pressure: rawPressure,
     icon,
-    pressure,
     conditions,
     snow,
   } = raw;
@@ -34,6 +34,7 @@ export default function createHour(raw) {
   const windSpeed = Math.round(rawWindSpeed ?? 0);
   const visibility = Math.round(rawVisibility ?? 0);
   const windDir = Math.round(rawWindDir ?? 0);
+  const pressure = Math.round(rawPressure ?? 0);
   const precip = Number((rawPrecip ?? 0).toFixed(2));
 
   const hour = {

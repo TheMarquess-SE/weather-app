@@ -23,9 +23,9 @@ export default function createDay(raw) {
     datetimeEpoch: dateTime,
     sunriseEpoch: sunrise,
     sunsetEpoch: sunset,
+    pressure: rawPressure,
     hours: rawHours,
     icon,
-    pressure,
     conditions,
     snow,
     description,
@@ -46,6 +46,7 @@ export default function createDay(raw) {
   const windSpeed = Math.round(rawWindSpeed ?? 0);
   const windDir = Math.round(rawWindDir ?? 0);
   const precipCover = Math.round(rawPrecipCover ?? 0);
+  const pressure = Math.round(rawPressure ?? 0);
   const visibility = Math.round(rawVisibility ?? 0);
 
   const day = {
