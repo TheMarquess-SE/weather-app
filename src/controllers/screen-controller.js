@@ -1,3 +1,5 @@
+import { isSameDay } from 'date-fns';
+import { TZDate } from '@date-fns/tz';
 import summary from '../components/summary/summary';
 import alerts from '../components/alerts/alerts';
 import wind from '../components/wind/wind';
@@ -10,7 +12,9 @@ import moonPhase from '../components/moon-phase/moon-phase';
 import feelsLike from '../components/feels-like/feels-like';
 import airQuality from '../components/air-quality/air-quality';
 import precipitation from '../components/precipitation/precipitation';
+import hours from '../components/hours/hours';
 import formatUnits from '../utils/format-units';
+import fetchAndFillHours from '../utils/fetch-fill-hours';
 
 export default function screenController() {
   const spinnerEl = document.getElementById('spinner-container');
@@ -34,6 +38,7 @@ export default function screenController() {
   const fl = feelsLike();
   const aq = airQuality();
   const pc = precipitation();
+  const h = hours();
 
   function init() {
     // Summary
@@ -108,6 +113,10 @@ export default function screenController() {
     pc.init({
       valueEl: document.getElementById('precipitation-data-past-6h'),
     });
+    h.init({
+      containerEl: document.getElementById('weather-hours-container'),
+      descriptionEl: document.getElementById('description'),
+    });
   }
 
   function toggleSpinner() {
@@ -157,9 +166,31 @@ export default function screenController() {
     });
   }
 
+  // eslint-disable-next-line no-shadow
+  function formatHours(hours, units) {
+    return hours.map((hour) => ({
+      ...hour,
+      temp: format.formatTemp(hour.temp, units),
+    }));
+  }
+
   function update(state) {
     const { hour, day, location, units } = state;
+    const { timeZone } = location;
+    const [today, tomorrow] = location.days;
     const now = Date.now();
+    const tzNow = new TZDate(now, timeZone);
+    const tzDay = new TZDate(day.dateTime * 1000, timeZone);
+    const isToday = isSameDay(tzNow, tzDay);
+    let displayHours;
+
+    // fetch 24h from now and format
+    if (isToday) {
+      const fetchedHours = fetchAndFillHours(today.hours, tomorrow.hours, now, location.timeZone);
+      displayHours = formatHours(fetchedHours, units.temp);
+    } else {
+      displayHours = formatHours(day.hours, units.temp);
+    }
 
     // Summary
     sum.updateLocation(
@@ -201,6 +232,7 @@ export default function screenController() {
     aq.update(hour.airQuality);
     // Precipitation
     pc.update(format.formatPrec(day.precip, units.prec), units.prec);
+    h.update(displayHours, location.description, location.timeZone, isToday);
   }
 
   return {
