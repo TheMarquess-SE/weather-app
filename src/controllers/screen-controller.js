@@ -5,6 +5,7 @@ import uvIndex from '../components/uv-index/uv-index';
 import sunrise from '../components/sunrise/sunrise';
 import visibility from '../components/visibility/visibility';
 import pressure from '../components/pressure/pressure';
+import humidity from '../components/humidity/humidity';
 import formatUnits from '../utils/format-units';
 
 export default function screenController() {
@@ -24,6 +25,7 @@ export default function screenController() {
   const sr = sunrise();
   const vs = visibility();
   const ps = pressure();
+  const hm = humidity();
 
   function init() {
     // Summary
@@ -70,6 +72,11 @@ export default function screenController() {
       pointerEl: document.getElementById('barometer-pointer'),
       pressureEl: document.getElementById('pressure-value'),
       unitsEl: document.getElementById('pressure-units'),
+    });
+    // Humidity
+    hm.init({
+      humidityEl: document.getElementById('humidity-value'),
+      dewEl: document.getElementById('dew-value'),
     });
   }
 
@@ -154,6 +161,7 @@ export default function screenController() {
       format.formatPres(1050, units.pres),
       units.pres,
     );
+    hm.update(hour.humidity, format.formatTemp(hour.dew, units.temp));
   }
 
   return {
