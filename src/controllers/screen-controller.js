@@ -7,6 +7,7 @@ import visibility from '../components/visibility/visibility';
 import pressure from '../components/pressure/pressure';
 import humidity from '../components/humidity/humidity';
 import moonPhase from '../components/moon-phase/moon-phase';
+import feelsLike from '../components/feels-like/feels-like';
 import formatUnits from '../utils/format-units';
 
 export default function screenController() {
@@ -28,6 +29,7 @@ export default function screenController() {
   const ps = pressure();
   const hm = humidity();
   const mp = moonPhase();
+  const fl = feelsLike();
 
   function init() {
     // Summary
@@ -85,6 +87,11 @@ export default function screenController() {
       moonFirstEl: document.getElementById('moon'),
       moonSecondEl: document.getElementById('moonphase-shade'),
       moonPhaseNameEl: document.getElementById('moonphase-name'),
+    });
+    // Feels Like
+    fl.init({
+      tempEl: document.getElementById('feelslike-value'),
+      descriptionEl: document.getElementById('feelslike-description'),
     });
   }
 
@@ -173,6 +180,8 @@ export default function screenController() {
     hm.update(hour.humidity, format.formatTemp(hour.dew, units.temp));
     // Moon Phase
     mp.update(day.moonPhase);
+    // Feels Like
+    fl.update(format.formatTemp(hour.feelsLike, units.temp), format.formatTemp(hour.temp));
   }
 
   return {
