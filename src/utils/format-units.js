@@ -22,7 +22,7 @@ export default function formatUnits() {
   // precip
   function formatPrec(prec, units) {
     if (units === 'in') return prec;
-    return Math.round(prec * 2.54);
+    return prec * 25.4;
   }
 
   return {
