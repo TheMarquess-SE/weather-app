@@ -6,6 +6,7 @@ import sunrise from '../components/sunrise/sunrise';
 import visibility from '../components/visibility/visibility';
 import pressure from '../components/pressure/pressure';
 import humidity from '../components/humidity/humidity';
+import moonPhase from '../components/moon-phase/moon-phase';
 import formatUnits from '../utils/format-units';
 
 export default function screenController() {
@@ -26,6 +27,7 @@ export default function screenController() {
   const vs = visibility();
   const ps = pressure();
   const hm = humidity();
+  const mp = moonPhase();
 
   function init() {
     // Summary
@@ -77,6 +79,12 @@ export default function screenController() {
     hm.init({
       humidityEl: document.getElementById('humidity-value'),
       dewEl: document.getElementById('dew-value'),
+    });
+    // MoonPhase
+    mp.init({
+      moonFirstEl: document.getElementById('moon'),
+      moonSecondEl: document.getElementById('moonphase-shade'),
+      moonPhaseNameEl: document.getElementById('moonphase-name'),
     });
   }
 
@@ -161,7 +169,10 @@ export default function screenController() {
       format.formatPres(1050, units.pres),
       units.pres,
     );
+    // Humidity
     hm.update(hour.humidity, format.formatTemp(hour.dew, units.temp));
+    // Moon Phase
+    mp.update(day.moonPhase);
   }
 
   return {
