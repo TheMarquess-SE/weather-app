@@ -29,10 +29,13 @@ export default function createDay(raw) {
     conditions,
     snow,
     description,
+    dayIndex: index,
   } = raw;
 
   const mappedIcon = mapIcon(icon);
-  const hours = rawHours.map((hourData) => createHour(hourData));
+  const hours = rawHours.map((hourData, hourIndex) =>
+    createHour({ ...hourData, hourIndex, dayIndex: index }),
+  );
 
   const dew = Math.round(rawDew ?? 0);
   const feelsLike = Math.round(rawFeelsLike ?? 0);
@@ -76,6 +79,7 @@ export default function createDay(raw) {
     snowDepth,
     hours,
     icon: mappedIcon,
+    index,
   };
 
   return {

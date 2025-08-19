@@ -3,7 +3,7 @@ import { createEl } from './dom-utils';
 import getTempColor from '../utils/get-temp-color';
 
 export default function createDayElement(
-  { tempMax, tempMin, precipProb, icon, dateTime },
+  { tempMax, tempMin, precipProb, icon, dateTime, index },
   globalMax,
   globalMin,
   units,
@@ -82,6 +82,8 @@ export default function createDayElement(
       minMaxDayContainer,
     ],
   );
+
+  dayEl.dataset.dayIndex = index;
 
   return dayEl;
 }

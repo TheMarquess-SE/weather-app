@@ -15,8 +15,8 @@ export default function createLocation(raw) {
     tzoffset,
   } = raw;
 
-  const currentConditions = createHour(rawCurrentConditions);
-  const days = rawDays.map((d) => createDay(d));
+  const currentConditions = createHour({ ...rawCurrentConditions, hourIndex: -1, dayIndex: -1 });
+  const days = rawDays.map((d, dayIndex) => createDay({ ...d, dayIndex }));
   let alerts = [];
   if (rawAlerts.length > 0) {
     alerts = rawAlerts.map((a) => ({

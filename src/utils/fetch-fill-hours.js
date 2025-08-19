@@ -18,6 +18,7 @@ export default function fetchAndFillHours(todayHours, tomorrowHours, now, timeZo
 
   // Extract hours from start index to end of day
   hours = todayHours.slice(startIndex);
+
   // Add remaining hours from the following day
   if (hours.length < 24) {
     const remainingHours = 24 - hours.length;

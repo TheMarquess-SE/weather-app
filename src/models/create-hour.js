@@ -22,6 +22,8 @@ export default function createHour(raw) {
     icon,
     conditions,
     snow,
+    hourIndex: index,
+    dayIndex,
   } = raw;
 
   const mappedIcon = mapIcon(icon);
@@ -38,6 +40,8 @@ export default function createHour(raw) {
   const precip = Number((rawPrecip ?? 0).toFixed(2));
 
   const hour = {
+    index,
+    dayIndex,
     dateTime,
     airQuality,
     conditions,

@@ -173,6 +173,7 @@ export default function screenController() {
 
   // eslint-disable-next-line no-shadow
   function formatHours(hours, units) {
+    console.log(hours);
     return hours.map((hour) => ({
       ...hour,
       temp: format.formatTemp(hour.temp, units),
@@ -181,7 +182,6 @@ export default function screenController() {
 
   // eslint-disable-next-line no-shadow
   function formatDays(days, units) {
-    console.log(units);
     return days.map((day) => ({
       ...day,
       tempMax: format.formatTemp(day.tempMax, units),

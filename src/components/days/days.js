@@ -20,7 +20,9 @@ export default function days() {
   function update(days, units) {
     containerEl.innerHTML = '';
     const { globalMin, globalMax } = getGlobalTempRange(days);
-    const daysEls = days.map((day) => createDayElement(day, globalMax, globalMin, units));
+    const daysEls = days.map((day, index) =>
+      createDayElement(day, globalMax, globalMin, units, index),
+    );
     daysEls[0].querySelector('.weather-day > p').textContent = 'Today';
     daysEls.forEach((dayEl) => containerEl.appendChild(dayEl));
   }

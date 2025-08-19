@@ -2,7 +2,7 @@ import formatTime from '../utils/format-time';
 import { createEl } from './dom-utils';
 
 export default function createHourElement(hour, timeZone, isToday) {
-  const { precipProb, dateTime, icon, temp } = hour;
+  const { precipProb, dateTime, icon, temp, index, dayIndex } = hour;
 
   const time = formatTime(dateTime, timeZone);
   // do not display precipProb if < 14
@@ -18,6 +18,9 @@ export default function createHourElement(hour, timeZone, isToday) {
     createEl('div', { className: 'weather-hour-icon-precprob' }, [iconEl, precipProbEl]),
     tempEl,
   ]);
+
+  hourEl.dataset.hourIndex = index;
+  hourEl.dataset.dayIndex = dayIndex;
 
   return hourEl;
 }
