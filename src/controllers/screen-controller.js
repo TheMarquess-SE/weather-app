@@ -13,6 +13,7 @@ import feelsLike from '../components/feels-like/feels-like';
 import airQuality from '../components/air-quality/air-quality';
 import precipitation from '../components/precipitation/precipitation';
 import hours from '../components/hours/hours';
+import days from '../components/days/days';
 import formatUnits from '../utils/format-units';
 import fetchAndFillHours from '../utils/fetch-fill-hours';
 
@@ -39,6 +40,7 @@ export default function screenController() {
   const aq = airQuality();
   const pc = precipitation();
   const h = hours();
+  const d = days();
 
   function init() {
     // Summary
@@ -113,10 +115,13 @@ export default function screenController() {
     pc.init({
       valueEl: document.getElementById('precipitation-data-past-6h'),
     });
+    // Hours
     h.init({
       containerEl: document.getElementById('weather-hours-container'),
       descriptionEl: document.getElementById('description'),
     });
+    // Days
+    d.init({ containerEl: document.getElementById('weather-days-container') });
   }
 
   function toggleSpinner() {
@@ -171,6 +176,17 @@ export default function screenController() {
     return hours.map((hour) => ({
       ...hour,
       temp: format.formatTemp(hour.temp, units),
+    }));
+  }
+
+  // eslint-disable-next-line no-shadow
+  function formatDays(days, units) {
+    console.log(units);
+    return days.map((day) => ({
+      ...day,
+      tempMax: format.formatTemp(day.tempMax, units),
+      tempMin: format.formatTemp(day.tempMin, units),
+      temp: format.formatTemp(day.temp, units),
     }));
   }
 
@@ -232,7 +248,10 @@ export default function screenController() {
     aq.update(hour.airQuality);
     // Precipitation
     pc.update(format.formatPrec(day.precip, units.prec), units.prec);
+    // Hours
     h.update(displayHours, location.description, location.timeZone, isToday);
+    // Days
+    d.update(formatDays(location.days, units.temp), units.temp);
   }
 
   return {
