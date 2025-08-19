@@ -9,6 +9,7 @@ import humidity from '../components/humidity/humidity';
 import moonPhase from '../components/moon-phase/moon-phase';
 import feelsLike from '../components/feels-like/feels-like';
 import airQuality from '../components/air-quality/air-quality';
+import precipitation from '../components/precipitation/precipitation';
 import formatUnits from '../utils/format-units';
 
 export default function screenController() {
@@ -32,6 +33,7 @@ export default function screenController() {
   const mp = moonPhase();
   const fl = feelsLike();
   const aq = airQuality();
+  const pc = precipitation();
 
   function init() {
     // Summary
@@ -101,6 +103,10 @@ export default function screenController() {
       levelEl: document.getElementById('air-quality-level'),
       meterEl: document.getElementById('air-quality-meter-container'),
       markerEl: document.getElementById('air-quality-meter-marker'),
+    });
+    // Precipitation
+    pc.init({
+      valueEl: document.getElementById('precipitation-data-past-6h'),
     });
   }
 
@@ -193,6 +199,8 @@ export default function screenController() {
     fl.update(format.formatTemp(hour.feelsLike, units.temp), format.formatTemp(hour.temp));
     // Air Quality
     aq.update(hour.airQuality);
+    // Precipitation
+    pc.update(format.formatPrec(day.precip, units.prec), units.prec);
   }
 
   return {

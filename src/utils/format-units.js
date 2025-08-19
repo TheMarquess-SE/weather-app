@@ -21,8 +21,8 @@ export default function formatUnits() {
   }
   // precip
   function formatPrec(prec, units) {
-    if (units === 'in') return prec;
-    return prec * 25.4;
+    if (units === 'in') return prec ?? 0;
+    return ((prec ?? 0) * 25.4).toFixed(2);
   }
 
   return {
