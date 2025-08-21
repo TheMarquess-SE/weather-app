@@ -19,7 +19,11 @@ export default function appController(screen) {
   async function handleSearch(locationQuery) {
     screen.toggleSpinner();
     try {
-      const savedLocation = locations.find((savedLoc) => savedLoc.address === locationQuery);
+      const savedLocation = locations.find(
+        (savedLoc) =>
+          savedLoc.address.toLowerCase() === locationQuery.toLowerCase() ||
+          savedLoc.rawAddress.toLowerCase() === locationQuery.toLowerCase(),
+      );
       if (savedLocation) {
         const { days, currentConditions } = savedLocation;
         state.location = savedLocation;

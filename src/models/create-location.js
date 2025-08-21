@@ -7,10 +7,10 @@ export default function createLocation(raw) {
     days: rawDays,
     alerts: rawAlerts,
     timezone: timeZone,
+    address: rawAddress,
     latitude,
     longitude,
     resolvedAddress,
-    address,
     description,
     tzoffset,
   } = raw;
@@ -32,7 +32,10 @@ export default function createLocation(raw) {
     ];
   }
 
+  const address = resolvedAddress.split(',')[0];
+
   const location = {
+    rawAddress,
     address,
     resolvedAddress,
     longitude,
