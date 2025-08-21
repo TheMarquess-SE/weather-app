@@ -50,6 +50,7 @@ export default function screenController() {
       conditionsEl: document.getElementById('weather-condition'),
       tempMaxEl: document.getElementById('daily-max-temperature'),
       tempMinEl: document.getElementById('daily-min-temperature'),
+      dateEl: document.getElementById('date-time'),
     });
     // Alerts
     al.init({
@@ -225,18 +226,21 @@ export default function screenController() {
       fetchedHours[0] = location.currentConditions;
       fetchedHours[0].dayIndex = 0;
       fetchedHours[0].index = 0;
+      fetchedHours[0].dateTime = now / 1000;
       displayHours = formatHours(fetchedHours, units.temp);
     } else {
       displayHours = formatHours(day.hours, units.temp);
     }
 
     // Summary
-    sum.updateLocation(
+    sum.update(
       location.address,
       format.formatTemp(hour.temp, units.temp),
       hour.conditions,
       format.formatTemp(day.tempMax, units.temp),
       format.formatTemp(day.tempMin, units.temp),
+      hour.dateTime,
+      timeZone,
     );
     // Alerts
     al.update(location.alerts);

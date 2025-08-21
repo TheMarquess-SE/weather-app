@@ -1,4 +1,6 @@
+import { TZDate } from '@date-fns/tz';
 import formatAddress from '../../utils/format-address';
+import { formatTextualDate } from '../../utils/format-time';
 
 export default function summary() {
   let locationEl;
@@ -6,25 +8,16 @@ export default function summary() {
   let tempEl;
   let tempMaxEl;
   let tempMinEl;
+  let dateEl;
 
   function init(refs) {
-    ({ locationEl, conditionsEl, tempEl, tempMaxEl, tempMinEl } = refs);
+    ({ locationEl, conditionsEl, tempEl, tempMaxEl, tempMinEl, dateEl } = refs);
   }
 
-  function updateLocation(location, temp, condition, maxTemp, minTemp) {
+  function update(location, temp, condition, maxTemp, minTemp, hourDateTime, timeZone) {
+    const tzHourDt = new TZDate(hourDateTime * 1000, timeZone);
     locationEl.textContent = formatAddress(location);
-    tempEl.textContent = `${temp}°`;
-    conditionsEl.textContent = condition;
-    tempMaxEl.textContent = `${maxTemp}°`;
-    tempMinEl.textContent = `${minTemp}°`;
-  }
-
-  function updateHour(temp, condition) {
-    tempEl.textContent = `${temp}°`;
-    conditionsEl.textContent = condition;
-  }
-
-  function updateDay(temp, condition, maxTemp, minTemp) {
+    dateEl.textContent = formatTextualDate(tzHourDt);
     tempEl.textContent = `${temp}°`;
     conditionsEl.textContent = condition;
     tempMaxEl.textContent = `${maxTemp}°`;
@@ -33,8 +26,6 @@ export default function summary() {
 
   return {
     init,
-    updateLocation,
-    updateHour,
-    updateDay,
+    update,
   };
 }

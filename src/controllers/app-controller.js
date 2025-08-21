@@ -48,7 +48,12 @@ export default function appController(screen) {
 
   function handleHourSelection(indexDay, indexHour) {
     state.day = state.location.days[indexDay];
-    state.hour = state.day.hours[indexHour];
+    if (indexDay === 0 && indexHour === 0) {
+      state.hour = state.location.currentConditions;
+    } else {
+      state.hour = state.day.hours[indexHour];
+    }
+
     screen.update(state);
   }
 

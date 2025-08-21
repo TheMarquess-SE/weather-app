@@ -299,6 +299,9 @@ body {
   line-height: 1.7;
   color: #fff;
 }
+#date-time{
+  font-size: var(--font-size-secondary);
+}
 #current-temperature {
   font-size: var(--font-size-title);
   font-weight: 300;
