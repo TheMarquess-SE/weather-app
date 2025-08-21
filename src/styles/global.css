@@ -425,9 +425,18 @@ body {
   align-items: center;
   justify-content: space-between;
 
-  height: 100px !important;
+  height: 110px !important;
+  padding: 5px;
   font-size: var(--font-size-secondary);
   font-weight: 800;
+  border: 3px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border 0.3s ease-in;
+}
+
+.weather-hour:hover {
+  border: 3px solid rgba(255 ,255, 255, 0.3);
 }
 .weather-hour p {
   width: 70px;
@@ -492,6 +501,14 @@ body {
   align-items: center;
   font-size: var(--font-size-secondary);
   font-weight: 500;
+  border: 3px solid transparent;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.weather-day:hover{
+  border: 3px solid rgba(255 ,255, 255, 0.3);
 }
 .weather-day > p {
   width: 60px;

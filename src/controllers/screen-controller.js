@@ -133,14 +133,14 @@ export default function screenController() {
     settingsEl.classList.toggle('hidden');
   }
 
-  function bindSearch(processSearch) {
+  function bindSearch(handleSearch) {
     const searchInputEl = document.getElementById('search-input');
     const searchFormEl = document.getElementById('search-form');
 
     searchFormEl.addEventListener('submit', (e) => {
       e.preventDefault();
       const locationQuery = searchInputEl.value.trim();
-      processSearch(locationQuery);
+      handleSearch(locationQuery);
     });
   }
 
@@ -151,6 +151,26 @@ export default function screenController() {
       const selection = e.target.closest('.units-option') || null;
       if (!selection) return;
       changeUnits(selection.dataset.type, selection.dataset.unit);
+    });
+  }
+
+  function bindHours(handleHourSelection) {
+    const hoursEl = document.getElementById('weather-hours-container');
+    hoursEl.addEventListener('click', (e) => {
+      const hourEl = e.target.closest('.weather-hour') || null;
+      if (!hourEl) return;
+      const { dayIndex, hourIndex } = hourEl.dataset;
+      handleHourSelection(Number(dayIndex), Number(hourIndex));
+    });
+  }
+
+  function bindDays(handleDaySelection) {
+    const daysEl = document.getElementById('weather-days-container');
+    daysEl.addEventListener('click', (e) => {
+      const dayEl = e.target.closest('.weather-day') || null;
+      if (!dayEl) return;
+      const { dayIndex } = dayEl.dataset;
+      handleDaySelection(Number(dayIndex));
     });
   }
 
@@ -173,7 +193,6 @@ export default function screenController() {
 
   // eslint-disable-next-line no-shadow
   function formatHours(hours, units) {
-    console.log(hours);
     return hours.map((hour) => ({
       ...hour,
       temp: format.formatTemp(hour.temp, units),
@@ -201,8 +220,11 @@ export default function screenController() {
     let displayHours;
 
     // fetch 24h from now and format
-    if (isToday) {
+    if (day.index === 0) {
       const fetchedHours = fetchAndFillHours(today.hours, tomorrow.hours, now, location.timeZone);
+      fetchedHours[0] = location.currentConditions;
+      fetchedHours[0].dayIndex = 0;
+      fetchedHours[0].index = 0;
       displayHours = formatHours(fetchedHours, units.temp);
     } else {
       displayHours = formatHours(day.hours, units.temp);
@@ -260,6 +282,8 @@ export default function screenController() {
     toggleSpinner,
     bindSearch,
     bindSettings,
+    bindHours,
+    bindDays,
     updateSettings,
     update,
   };

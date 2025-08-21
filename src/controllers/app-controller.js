@@ -16,7 +16,7 @@ export default function appController(screen) {
     },
   };
 
-  async function processSearch(locationQuery) {
+  async function handleSearch(locationQuery) {
     screen.toggleSpinner();
     try {
       const savedLocation = locations.find((savedLoc) => savedLoc.address === locationQuery);
@@ -46,6 +46,24 @@ export default function appController(screen) {
     }
   }
 
+  function handleHourSelection(indexDay, indexHour) {
+    state.day = state.location.days[indexDay];
+    state.hour = state.day.hours[indexHour];
+    screen.update(state);
+  }
+
+  function handleDaySelection(indexDay) {
+    state.day = state.location.days[indexDay];
+    if (indexDay === 0) {
+      state.hour = state.location.currentConditions;
+    } else {
+      // eslint-disable-next-line prefer-destructuring
+      state.hour = state.day.hours[11];
+    }
+
+    screen.update(state);
+  }
+
   function changeUnits(type, newUnit) {
     state.units[type] = newUnit;
     console.log(state.units);
@@ -55,9 +73,11 @@ export default function appController(screen) {
 
   function init() {
     screen.init();
-    screen.bindSearch(processSearch);
+    screen.bindSearch(handleSearch);
     screen.initSettings(state.units);
     screen.bindSettings(changeUnits);
+    screen.bindHours(handleHourSelection);
+    screen.bindDays(handleDaySelection);
   }
 
   return {
