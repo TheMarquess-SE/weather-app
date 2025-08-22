@@ -2,41 +2,19 @@
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
 
 :root {
-  --bg-color-clear-day-top: #74b9ff;
-  --bg-color-clear-day-bottom: #b2d6f5;
-  --bg-color-evening-top: #a6c1ee;
-  --bg-color-evening-bottom: #fbc2eb;
-  --bg-color-night-top: #1c2943;
-  --bg-color-night-bottom: #414a6b;
-
   /* Default / Clear Day (Deeper, more oceanic blue) */
   --bg-day: linear-gradient(to top, #3a73b8, #4d9de0);
 
   /* Overcast / Evening (Softer, more muted tones) */
   --bg-evening: linear-gradient(to top, #6a86b9, #99a7d0);
 
+  --bg-summer-evening: linear-gradient(to top, #ff7e5f, #b373a4);;
+
   /* Night / General Rain (Slightly darker for better contrast) */
   --bg-night: linear-gradient(to top, #141a29, #2c3550);
 
-  /* New Gradients (All adjusted for a softer, more readable look) */
-
   /* A cool, dark gradient for rainy or stormy skies. */
   --bg-rain: linear-gradient(to top, #3a4759, #4b596f);
-
-  /* A soft, icy gradient for snowy weather (now requires dark text). */
-  --bg-snow: linear-gradient(to top, #d4dce0, #e0e7ea);
-
-  /* A warm, fiery gradient for intense heat (now requires dark text). */
-  --bg-heat: linear-gradient(to top, #ff9966, #ffb94c);
-
-  /* A deep, earthy gradient for desert or dry conditions (now requires dark text). */
-  --bg-desert: linear-gradient(to top, #a36a47, #c6b3a0);
-
-  /* A dark, dramatic gradient for a severe storm. */
-  --bg-storm: linear-gradient(to top, #2c2c34, #444e66);
-
-  /* A softer, sunny glow for clear, bright days (now requires dark text). */
-  --bg-sunny: linear-gradient(to top, #ffddaa, #ffd28c);
 
   --text-primary-color: #ffffff;
   --text-secondary-color: rgba(255, 255, 255, 0.7);
@@ -67,7 +45,7 @@ body {
   color: var(--text-secondary-color);
   margin: 0;
   padding: 4rem 0 8rem 0;
-  background: var(--bg-day);
+  background: var(--bg-night);
 }
 
 /* Author Signature */
@@ -548,7 +526,7 @@ body {
 }
 
 /* SPECIAL WEATHER ELEMENTS */
-#sun {
+.sun {
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -573,7 +551,7 @@ body {
   z-index: 0;
 }
 
-#sun::after {
+.sun::after {
   content: '';
   position: absolute;
   inset: -25%;
@@ -588,31 +566,46 @@ body {
   z-index: 1;
   filter: blur(10px);
 }
+.mooon {
+  width: 90px; /* Slightly smaller than the sun */
+  height: 90px;
+  border-radius: 50%;
+  position: fixed;
+  left: 70%; /* Different position */
+  top: 25%;
 
-#sun3 {
   background: radial-gradient(
-    circle at 30% 30%,
-    #fffff0,
-    #ffddaa,
-    #ffcc80
-  ); /* Very light yellow to soft orange */
+    circle,
+    #f0f0f5 0%,
+    /* very light gray-white */ #dce0e6 30%,
+    /* light cool gray */ #bfc4cc 70%,
+    /* medium gray */ #a0a6b0 100% /* darker cool gray edge */
+  );
 
-  /* Multiple box-shadows for a soft, diffused halo effect, with less saturation */
   box-shadow:
-    0 0 20px 10px rgba(255, 230, 180, 0.8),
-    /* Soft, light inner glow */ 0 0 50px 25px rgba(255, 200, 100, 0.5),
-    /* Wider, diffused golden glow */ 0 0 100px 50px rgba(255, 170, 50, 0.2); /* Large, very faint outer halo */
+    0 0 30px 10px rgba(220, 225, 230, 0.7),
+    0 0 60px 20px rgba(180, 190, 200, 0.5),
+    0 0 120px 40px rgba(140, 150, 160, 0.3); /* soft, cool glow */
+
+  /* Filters for moon, subtle adjustments */
+  filter: contrast(1.0) brightness(0.9);
+  z-index: 0;
 }
 
-#sun2 {
-  /* Base color and subtle radial gradient for spherical depth */
-  background: radial-gradient(circle at 30% 30%, #ffffff, #f0f0f0);
-
-  /* Multiple box-shadows for the glow effect */
-  box-shadow:
-    0 0 5px 2px rgba(255, 255, 255, 0.8),
-    /* Inner bright glow */ 0 0 15px 5px rgba(255, 255, 255, 0.5),
-    /* Medium outer glow */ 0 0 30px 10px rgba(255, 255, 255, 0.2); /* Fainter, wider glow */
+.mooon::after {
+  content: '';
+  position: absolute;
+  inset: -20%; /* Slightly smaller halo */
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(220, 225, 230, 0.3) 0%,
+    /* light cool glow */ rgba(180, 190, 200, 0.1) 50%,
+    /* cool haze */ rgba(180, 190, 200, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(8px); /* Softer blur */
 }
 
 /*
