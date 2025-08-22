@@ -1,5 +1,6 @@
 import { TZDate } from '@date-fns/tz';
 import { formatTimeShort } from '../../utils/format-time';
+import './sunrise.css';
 
 export default function sunrise() {
   let mainEl;

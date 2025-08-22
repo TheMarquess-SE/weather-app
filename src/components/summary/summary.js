@@ -1,6 +1,7 @@
 import { TZDate } from '@date-fns/tz';
 import formatAddress from '../../utils/format-address';
 import { formatTextualDate } from '../../utils/format-time';
+import './summary.css';
 
 export default function summary() {
   let locationEl;

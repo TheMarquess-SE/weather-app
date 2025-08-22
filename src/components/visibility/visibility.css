@@ -1,0 +1,5 @@
+/* VISIBILITY */
+#visibility-value {
+  font-size: var(--font-size-subtitle);
+  font-weight: 500;
+}

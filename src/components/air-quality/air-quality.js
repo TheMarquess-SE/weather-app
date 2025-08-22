@@ -1,3 +1,5 @@
+import './air-quality.css';
+
 export default function airQuality() {
   let valueEl;
   let levelEl;

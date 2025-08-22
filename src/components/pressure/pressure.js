@@ -1,3 +1,5 @@
+import './pressure.css';
+
 export default function pressure() {
   let pointerEl;
   let pressureEl;

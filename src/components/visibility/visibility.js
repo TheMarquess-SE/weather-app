@@ -1,3 +1,5 @@
+import './visibility.css';
+
 export default function visibility() {
   let distanceEl;
 

@@ -1,4 +1,5 @@
 import createAlertElement from '../../dom-utils/create-alert-element';
+import './alerts.css';
 
 export default function alerts() {
   let alertsEl;

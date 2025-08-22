@@ -1,4 +1,5 @@
 import createHourElement from '../../dom-utils/create-hour-element';
+import './hours.css';
 
 export default function hours() {
   let containerEl;

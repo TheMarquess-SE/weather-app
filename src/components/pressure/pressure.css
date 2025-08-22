@@ -1,0 +1,169 @@
+/* PRESSURE */
+#pressure-data-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#pressure-value {
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+#pressure-units-units {
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+#pressure-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.barometer {
+  height: 130px;
+  aspect-ratio: 1/1;
+
+  position: relative;
+}
+.barometer-stroke {
+  position: absolute;
+  width: 3px;
+  height: 7px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border-radius: 2px;
+
+  /* Position all strokes at the center, then rotate and push them out */
+  top: 50%;
+  left: 50%;
+  transform-origin: 0% 0%; /* Rotate from the center of the parent */
+
+  /* Individual rotation and translation will be handled below */
+}
+.barometer-low {
+  font-size: 0.9rem;
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+}
+.barometer-high {
+  font-size: 0.9rem;
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+}
+.barometer-pointer {
+  position: absolute;
+  width: 4px;
+  height: 12px;
+  border-radius: 3px;
+  background-color: #fff;
+  top: 50%;
+  left: 50%;
+  transform-origin: 0% 0%;
+  /* 240deg to 120deg*/
+  transform: rotate(0deg) translateY(-67px);
+  transition: transform 1s ease-out;
+}
+
+/* Individual positionin of barometer strokes */
+.barometer-stroke:nth-of-type(1) {
+  transform: rotate(-120deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(2) {
+  transform: rotate(-112.2581deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(3) {
+  transform: rotate(-104.5161deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(4) {
+  transform: rotate(-96.7742deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(5) {
+  transform: rotate(-89.0323deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(6) {
+  transform: rotate(-81.2903deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(7) {
+  transform: rotate(-73.5484deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(8) {
+  transform: rotate(-65.8065deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(9) {
+  transform: rotate(-58.0645deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(10) {
+  transform: rotate(-50.3226deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(11) {
+  transform: rotate(-42.5806deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(12) {
+  transform: rotate(-34.8387deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(13) {
+  transform: rotate(-27.0968deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(14) {
+  transform: rotate(-19.3548deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(15) {
+  transform: rotate(-11.6129deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(16) {
+  transform: rotate(-3.871deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(17) {
+  transform: rotate(3.871deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(18) {
+  transform: rotate(11.6129deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(19) {
+  transform: rotate(19.3548deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(20) {
+  transform: rotate(27.0968deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(21) {
+  transform: rotate(34.8387deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(22) {
+  transform: rotate(42.5806deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(23) {
+  transform: rotate(50.3226deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(24) {
+  transform: rotate(58.0645deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(25) {
+  transform: rotate(65.8065deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(26) {
+  transform: rotate(73.5484deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(27) {
+  transform: rotate(81.2903deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(28) {
+  transform: rotate(89.0323deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(29) {
+  transform: rotate(96.7742deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(30) {
+  transform: rotate(104.5161deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(31) {
+  transform: rotate(112.2581deg) translateY(-65px);
+}
+.barometer-stroke:nth-of-type(32) {
+  transform: rotate(120deg) translateY(-65px);
+}

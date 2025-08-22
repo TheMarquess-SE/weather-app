@@ -1,0 +1,16 @@
+/* ALERTS */
+.alerts-container {
+  height: 120px;
+  overflow-y: auto;
+}
+.alert {
+  margin-bottom: 0.5rem;
+}
+.alert-title {
+  font-size: var(--font-size-regular);
+  font-weight: 600;
+}
+.alert-description {
+  font-size: var(--font-size-captions);
+  color: var(--text-tertiary-color);
+}

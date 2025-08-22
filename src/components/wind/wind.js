@@ -1,3 +1,5 @@
+import './wind.css';
+
 export default function wind() {
   let speedEl;
   let gustsEl;

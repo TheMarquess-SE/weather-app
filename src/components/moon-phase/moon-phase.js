@@ -1,3 +1,5 @@
+import './moon-phase.css';
+
 export default function moonPhase() {
   let moonFirstEl;
   let moonSecondEl;

@@ -1,0 +1,87 @@
+/* WEATHER DAYS */
+#weather-days-container {
+  margin-top: 0.5rem;
+  /* --- CSS to hide the scrollbar --- */
+
+  /* Hide scrollbar for Chrome, Safari, and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for Firefox */
+  scrollbar-width: none;
+
+  /* Hide scrollbar for Internet Explorer and Edge */
+  -ms-overflow-style: none;
+}
+#weather-days-container {
+  width: 100%;
+  height: 95%;
+  overflow: auto;
+}
+.weather-day {
+  width: 100%;
+  height: 60px;
+  border-bottom: 1px solid var(--text-help-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--font-size-secondary);
+  font-weight: 500;
+  border: 3px solid transparent;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.weather-day:hover{
+  border: 3px solid rgba(255 ,255, 255, 0.3);
+}
+.weather-day > p {
+  width: 60px;
+}
+.day-precip-prob {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  width: auto;
+}
+.precipProb-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+.min-max-day-container {
+  width: 220px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.min-max-day-container p:first-of-type {
+  color: var(--text-tertiary-color);
+  width: 40px;
+}
+.min-max-day-container p:last-of-type {
+  width: 40px;
+}
+
+.temp-meter-container {
+  width: 120px;
+  height: 5px;
+  border-radius: 5px;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.temp-meter-marker {
+  position: absolute;
+  height: 100%;
+  border-radius: 5px;
+  left: 0;
+  width: 0;
+  transition: all 0.5s ease-in-out;
+}

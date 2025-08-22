@@ -1,3 +1,5 @@
+import './feels-like.css';
+
 export default function feelsLike() {
   let tempEl;
   let descriptionEl;

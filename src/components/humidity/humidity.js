@@ -1,3 +1,5 @@
+import './humidity.css';
+
 export default function humidity() {
   let humidityEl;
   let dewEl;

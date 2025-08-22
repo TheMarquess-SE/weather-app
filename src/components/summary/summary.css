@@ -1,0 +1,50 @@
+/* HEADER */
+#header-container {
+  max-width: 50%;
+  margin: 2rem auto 2rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+
+  position: relative;
+  z-index: 1;
+}
+#location {
+  font-family: 'Playwrite AU QLD';
+  width: 100%;
+  font-size: 3rem;
+  font-weight: 600;
+  text-align: center;
+  line-height: 2;
+  color: #fff;
+}
+#date-time {
+  font-size: var(--font-size-secondary);
+  font-weight: 500;
+  opacity: 0.6;
+}
+#current-temperature {
+  font-size: var(--font-size-title);
+  font-weight: 300;
+  color: #fff;
+}
+#weather-condition {
+  font-size: var(--font-size-regular);
+  font-weight: 600;
+  opacity: 0.8;
+}
+#daily-max-min-temperature-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  font-size: var(--font-size-secondary);
+  font-weight: 500;
+  opacity: 0.6;
+}
+#max-temperature-container {
+  display: inherit;
+}
+#min-temperature-container {
+  display: inherit;
+}

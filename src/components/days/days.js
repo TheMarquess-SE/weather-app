@@ -1,4 +1,5 @@
 import createDayElement from '../../dom-utils/create-day-element';
+import './days.css';
 
 export default function days() {
   let containerEl;

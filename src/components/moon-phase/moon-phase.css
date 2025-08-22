@@ -1,0 +1,32 @@
+/* MOONPHASE */
+#moonphase-container {
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.moon {
+  width: 100px;
+  height: 100px;
+  background-color: rgb(230, 230, 230);
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+#moonphase-name {
+  font-size: 1.2rem;
+  color: var(--text-tertiary-color);
+  font-weight: 600;
+}
+
+#moonphase-shade {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(179, 179, 179);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}

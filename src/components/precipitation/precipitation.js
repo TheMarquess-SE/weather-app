@@ -1,3 +1,5 @@
+import './precipitation.css';
+
 export default function precipitation() {
   let valueEl;
 

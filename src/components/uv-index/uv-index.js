@@ -1,3 +1,5 @@
+import './uv-index.css';
+
 export default function uvIndex() {
   let valueEl;
   let levelEl;

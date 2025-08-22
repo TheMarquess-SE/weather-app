@@ -1,0 +1,251 @@
+/* WIND */
+#wind-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+#wind-expanded-data-cointainer {
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  justify-content: center;
+}
+.wind-expanded-data {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: 500;
+  width: 240px;
+  height: 40px;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+.wind-expanded-data:last-of-type {
+  border-bottom: none;
+}
+.wind-data {
+  color: var(--text-tertiary-color);
+}
+
+.compass {
+  height: 130px;
+  aspect-ratio: 1/1;
+
+  position: relative;
+}
+.compass-stroke {
+  position: absolute;
+  width: 1px;
+  height: 7px;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 2px;
+
+  /* Position all strokes at the center, then rotate and push them out */
+  top: 50%;
+  left: 50%;
+  transform-origin: 0% 0%; /* Rotate from the center of the parent */
+
+  /* Individual rotation and translation will be handled below */
+}
+.main-cardinal {
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.8rem;
+}
+
+/* Specific styling for the longer, cardinal strokes */
+.compass-stroke.cardinal {
+  height: 7px;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+/* --- Individual stroke rotations --- */
+/* MAIN CARDINALS (N, E, S, W) */
+.compass-stroke.main-cardinal:nth-of-type(1) {
+  transform: rotate(0deg) translateY(-68px) translateX(-5px); /* N */
+}
+.compass-stroke.main-cardinal:nth-of-type(9) {
+  transform: rotate(0deg) translateY(-8px) translateX(57px); /* E */
+}
+.compass-stroke.main-cardinal:nth-of-type(17) {
+  transform: rotate(0deg) translateY(54px) translateX(-5px); /* S */
+}
+.compass-stroke.main-cardinal:nth-of-type(25) {
+  transform: rotate(0deg) translateY(-8px) translateX(-67px); /* W */
+}
+
+/* CARDINALS (NE, SE, SW, NW) */
+.compass-stroke.cardinal:nth-of-type(5) {
+  transform: rotate(45deg) translateY(-65px);
+}
+.compass-stroke.cardinal:nth-of-type(13) {
+  transform: rotate(135deg) translateY(-65px);
+}
+.compass-stroke.cardinal:nth-of-type(21) {
+  transform: rotate(225deg) translateY(-65px);
+}
+.compass-stroke.cardinal:nth-of-type(29) {
+  transform: rotate(315deg) translateY(-65px);
+}
+
+/* TICK MARKS (MINOR STROKES) */
+.compass-stroke:nth-of-type(2) {
+  transform: rotate(11.25deg) translateY(-65px);
+}
+.compass-stroke:nth-of-type(3) {
+  transform: rotate(22.5deg) translateY(-65px);
+}
+.compass-stroke:nth-of-type(4) {
+  transform: rotate(33.75deg) translateY(-65px);
+}
+.compass-stroke:nth-of-type(6) {
+  transform: rotate(56.25deg) translateY(-65px);
+}
+.compass-stroke:nth-of-type(7) {
+  transform: rotate(67.5deg) translateY(-65px);
+}
+.compass-stroke:nth-of-type(8) {
+  transform: rotate(78.75deg) translateY(-65px);
+}
+.compass-stroke:nth-of-type(10) {
+  transform: rotate(101.25deg) translateY(-65px);
+}
+.compass-stroke:nth-of-type(11) {
+  transform: rotate(112.5deg) translateY(-65px);
+}
+.compass-stroke:nth-of-type(12) {
+  transform: rotate(123.75deg) translateY(-65px);
+}
+.compass-stroke:nth-of-type(14) {
+  transform: rotate(146.25deg) translateY(-65px);
+}
+.compass-stroke:nth-of-type(15) {
+  transform: rotate(157.5deg) translateY(-65px);
+}
+.compass-stroke:nth-of-type(16) {
+  transform: rotate(168.75deg) translateY(-65px);
+}
+.compass-stroke:nth-of-type(18) {
+  transform: rotate(191.25deg) translateY(-65px);
+}
+.compass-stroke:nth-of-type(19) {
+  transform: rotate(202.5deg) translateY(-65px);
+}
+.compass-stroke:nth-of-type(20) {
+  transform: rotate(213.75deg) translateY(-65px);
+}
+.compass-stroke:nth-of-type(22) {
+  transform: rotate(236.25deg) translateY(-65px);
+}
+.compass-stroke:nth-of-type(23) {
+  transform: rotate(247.5deg) translateY(-65px);
+}
+.compass-stroke:nth-of-type(24) {
+  transform: rotate(258.75deg) translateY(-65px);
+}
+.compass-stroke:nth-of-type(26) {
+  transform: rotate(281.25deg) translateY(-65px);
+}
+.compass-stroke:nth-of-type(27) {
+  transform: rotate(292.5deg) translateY(-65px);
+}
+.compass-stroke:nth-of-type(28) {
+  transform: rotate(303.75deg) translateY(-65px);
+}
+.compass-stroke:nth-of-type(30) {
+  transform: rotate(326.25deg) translateY(-65px);
+}
+.compass-stroke:nth-of-type(31) {
+  transform: rotate(337.5deg) translateY(-65px);
+}
+.compass-stroke:nth-of-type(32) {
+  transform: rotate(348.75deg) translateY(-65px);
+}
+
+.compass-center {
+  height: 65px;
+  aspect-ratio: 1/1;
+  background: transparent;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+.compass-arrow {
+  width: 160px;
+  height: 2px;
+  background-color: transparent;
+  position: absolute;
+  left: -15px;
+  top: 50%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 1s ease-out;
+}
+
+.compass-arrow-top {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 14px;
+}
+.compass-arrow-head {
+  height: 0px;
+  width: 0px;
+  transform: rotate(90deg);
+
+  border-left: 5px solid transparent; /* The left side of the triangle */
+  border-right: 5px solid transparent; /* The right side of the triangle */
+  border-bottom: 9px solid #fff;
+  border-radius: 1px;
+}
+.compass-arrow-body-top {
+  width: 23px;
+  height: 2px;
+  background-color: #fff;
+}
+
+.compass-arrow-bottom {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 15px;
+}
+.compass-arrow-tail {
+  width: 9px;
+  height: 9px;
+  background-color: #fff;
+  border-radius: 50%;
+}
+.compass-arrow-body-bottom {
+  width: 23px;
+  height: 2px;
+  background-color: #fff;
+}
+
+#wind-data-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#wind-speed {
+  font-weight: 800;
+  font-size: 1.5rem;
+}
+#wind-speed-units {
+  font-weight: 600;
+  font-size: 0.8rem;
+}
