@@ -232,6 +232,28 @@ export default function screenController() {
       displayHours = formatHours(day.hours, units.temp);
     }
 
+    // environment
+    const selHours = new TZDate(hour.dateTime * 1000, timeZone).getHours();
+    const sunriseHours = new TZDate(day.sunrise * 1000, timeZone).getHours();
+    const sunsetHours = new TZDate(day.sunset * 1000, timeZone).getHours();
+    const bodyEl = document.querySelector('body');
+    const sunMoonEl = document.getElementById('sun');
+    sunMoonEl.classList.remove(...sunMoonEl.classList);
+    if (selHours < sunriseHours || selHours > sunsetHours) {
+      bodyEl.style.background = 'var(--bg-night)';
+      sunMoonEl.classList.add('mooon');
+    } else if (selHours <= sunsetHours && selHours > sunsetHours - 3) {
+      bodyEl.style.background = 'var(--bg-summer-evening)';
+      sunMoonEl.classList.add('sun');
+    } else {
+      bodyEl.style.background = 'var(--bg-day)';
+      sunMoonEl.classList.add('sun');
+    }
+
+    if (hour.conditions === 'Rain') {
+      bodyEl.style.background = 'var(--bg-rain)';
+    }
+
     // Summary
     sum.update(
       location.address,

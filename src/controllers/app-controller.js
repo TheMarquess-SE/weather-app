@@ -1,4 +1,5 @@
 import fetchWeather from '../services/weather-api';
+import getGeoLocation from '../services/geo-location-api';
 import createLocation from '../models/create-location';
 import createDemoLocation from '../demo/demo';
 
@@ -92,6 +93,17 @@ export default function appController(screen) {
     screen.update(state);
   }
 
+  async function initIpGeoLocation() {
+    try {
+      const ipGeoLocation = await getGeoLocation();
+      handleSearch(ipGeoLocation.city);
+    } catch (err) {
+      // chore: handle error display
+      console.log(err);
+      initDemo();
+    }
+  }
+
   function init() {
     screen.init();
     screen.bindSearch(handleSearch);
@@ -99,7 +111,7 @@ export default function appController(screen) {
     screen.bindSettings(changeUnits);
     screen.bindHours(handleHourSelection);
     screen.bindDays(handleDaySelection);
-    initDemo();
+    initIpGeoLocation();
   }
 
   return {
