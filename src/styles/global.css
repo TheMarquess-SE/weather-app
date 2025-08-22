@@ -301,6 +301,8 @@ body {
 }
 #date-time{
   font-size: var(--font-size-secondary);
+  font-weight: 500;
+  opacity: 0.6;
 }
 #current-temperature {
   font-size: var(--font-size-title);

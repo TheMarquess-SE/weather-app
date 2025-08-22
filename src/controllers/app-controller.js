@@ -1,5 +1,6 @@
 import fetchWeather from '../services/weather-api';
 import createLocation from '../models/create-location';
+import createDemoLocation from '../demo/demo';
 
 export default function appController(screen) {
   const locations = [];
@@ -80,6 +81,17 @@ export default function appController(screen) {
     screen.update(state);
   }
 
+  function initDemo() {
+    const demoLocation = createDemoLocation();
+    console.log(demoLocation);
+    const { days, currentConditions } = demoLocation;
+    state.location = demoLocation;
+    [state.day] = days;
+    state.hour = currentConditions;
+
+    screen.update(state);
+  }
+
   function init() {
     screen.init();
     screen.bindSearch(handleSearch);
@@ -87,6 +99,7 @@ export default function appController(screen) {
     screen.bindSettings(changeUnits);
     screen.bindHours(handleHourSelection);
     screen.bindDays(handleDaySelection);
+    initDemo();
   }
 
   return {
