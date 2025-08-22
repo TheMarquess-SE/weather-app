@@ -14,6 +14,7 @@ import airQuality from '../components/air-quality/air-quality';
 import precipitation from '../components/precipitation/precipitation';
 import hours from '../components/hours/hours';
 import days from '../components/days/days';
+import environment from '../components/environment/environment';
 import formatUnits from '../utils/format-units';
 import fetchAndFillHours from '../utils/fetch-fill-hours';
 
@@ -41,6 +42,7 @@ export default function screenController() {
   const pc = precipitation();
   const h = hours();
   const d = days();
+  const env = environment();
 
   function init() {
     // Summary
@@ -123,6 +125,12 @@ export default function screenController() {
     });
     // Days
     d.init({ containerEl: document.getElementById('weather-days-container') });
+    // Environment
+    env.init({
+      bodyEl: document.querySelector('body'),
+      sunMoonEl: document.getElementById('sun'),
+      htmlEl: document.querySelector('html'),
+    });
   }
 
   function toggleSpinner() {
@@ -232,27 +240,11 @@ export default function screenController() {
       displayHours = formatHours(day.hours, units.temp);
     }
 
-    // environment
+    // Environment
     const selHours = new TZDate(hour.dateTime * 1000, timeZone).getHours();
     const sunriseHours = new TZDate(day.sunrise * 1000, timeZone).getHours();
     const sunsetHours = new TZDate(day.sunset * 1000, timeZone).getHours();
-    const bodyEl = document.querySelector('body');
-    const sunMoonEl = document.getElementById('sun');
-    sunMoonEl.classList.remove(...sunMoonEl.classList);
-    if (selHours < sunriseHours || selHours > sunsetHours) {
-      bodyEl.style.background = 'var(--bg-night)';
-      sunMoonEl.classList.add('mooon');
-    } else if (selHours <= sunsetHours && selHours > sunsetHours - 3) {
-      bodyEl.style.background = 'var(--bg-summer-evening)';
-      sunMoonEl.classList.add('sun');
-    } else {
-      bodyEl.style.background = 'var(--bg-day)';
-      sunMoonEl.classList.add('sun');
-    }
-
-    if (hour.conditions === 'Rain') {
-      bodyEl.style.background = 'var(--bg-rain)';
-    }
+    env.update(selHours, sunriseHours, sunsetHours, hour);
 
     // Summary
     sum.update(

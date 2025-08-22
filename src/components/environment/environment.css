@@ -1,0 +1,82 @@
+/* SPECIAL WEATHER ELEMENTS */
+.sun {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: fixed;
+  left: 20%;
+  top: 20%;
+
+  background: radial-gradient(
+    circle,
+    #fffdf5 0%,
+    /* pale yellow-white */ #fff6e0 30%,
+    /* warm cream */ #ffe6b8 70%,
+    /* soft gold */ #ffd07a 100% /* golden-orange edge */
+  );
+
+  box-shadow:
+    0 0 40px 15px rgba(255, 243, 200, 0.9),
+    0 0 80px 30px rgba(255, 220, 150, 0.65),
+    0 0 160px 60px rgba(255, 180, 90, 0.4); /* deeper warm glow */
+
+  filter: contrast(1.05) brightness(1.15);
+  z-index: 0;
+}
+
+.sun::after {
+  content: '';
+  position: absolute;
+  inset: -25%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 236, 200, 0.35) 0%,
+    /* light warm glow */ rgba(255, 225, 180, 0.15) 50%,
+    /* golden haze */ rgba(255, 225, 180, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(10px);
+}
+.mooon {
+  width: 90px; /* Slightly smaller than the sun */
+  height: 90px;
+  border-radius: 50%;
+  position: fixed;
+  left: 70%; /* Different position */
+  top: 25%;
+
+  background: radial-gradient(
+    circle,
+    #f0f0f5 0%,
+    /* very light gray-white */ #dce0e6 30%,
+    /* light cool gray */ #bfc4cc 70%,
+    /* medium gray */ #a0a6b0 100% /* darker cool gray edge */
+  );
+
+  box-shadow:
+    0 0 30px 10px rgba(220, 225, 230, 0.7),
+    0 0 60px 20px rgba(180, 190, 200, 0.5),
+    0 0 120px 40px rgba(140, 150, 160, 0.3); /* soft, cool glow */
+
+  /* Filters for moon, subtle adjustments */
+  filter: contrast(1) brightness(0.9);
+  z-index: 0;
+}
+
+.mooon::after {
+  content: '';
+  position: absolute;
+  inset: -20%; /* Slightly smaller halo */
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(220, 225, 230, 0.3) 0%,
+    /* light cool glow */ rgba(180, 190, 200, 0.1) 50%,
+    /* cool haze */ rgba(180, 190, 200, 0) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(8px); /* Softer blur */
+}
