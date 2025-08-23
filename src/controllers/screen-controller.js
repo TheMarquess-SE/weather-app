@@ -15,6 +15,7 @@ import precipitation from '../components/precipitation/precipitation';
 import hours from '../components/hours/hours';
 import days from '../components/days/days';
 import environment from '../components/environment/environment';
+import error from '../components/error/error';
 import formatUnits from '../utils/format-units';
 import fetchAndFillHours from '../utils/fetch-fill-hours';
 
@@ -25,6 +26,8 @@ export default function screenController() {
   const closeSettingsBtnEl = document.getElementById('close-units-settings-btn');
   const settingsEl = document.getElementById('units-settings');
   const unitOptionsEls = settingsEl.querySelectorAll('.units-option');
+  const errEl = document.getElementById('error-container');
+  const closeErrBtnEl = document.getElementById('close-error-btn');
 
   // create modules
   const format = formatUnits();
@@ -43,6 +46,7 @@ export default function screenController() {
   const h = hours();
   const d = days();
   const env = environment();
+  const err = error();
 
   function init() {
     // Summary
@@ -131,6 +135,8 @@ export default function screenController() {
       sunMoonEl: document.getElementById('sun'),
       htmlEl: document.querySelector('html'),
     });
+    // Error
+    err.init({ msgEl: document.getElementById('error-msg') });
   }
 
   function toggleSpinner() {
@@ -218,6 +224,20 @@ export default function screenController() {
     }));
   }
 
+  function toggleErrorEl() {
+    errEl.classList.toggle('hidden');
+  }
+
+  closeErrBtnEl.addEventListener('click', () => {
+    toggleErrorEl();
+  });
+
+  function displayError(errMsg) {
+    err.update(errMsg);
+    toggleErrorEl();
+    setTimeout(toggleErrorEl, 8000);
+  }
+
   function update(state) {
     const { hour, day, location, units } = state;
     const { timeZone } = location;
@@ -303,6 +323,7 @@ export default function screenController() {
     bindHours,
     bindDays,
     updateSettings,
+    displayError,
     update,
   };
 }

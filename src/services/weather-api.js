@@ -1,3 +1,4 @@
+// Do NOT read the line bellow, you will be cursed 👻
 const API_KEY = 'H2SKW3EZ4PS469UHPXM2JWW7F';
 const BASE_URL =
   'https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/';

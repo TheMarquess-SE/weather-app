@@ -77,7 +77,7 @@
         <button type="submit" id="submit-search-btn">
           <i class="fa-solid fa-magnifying-glass"></i>
         </button>
-        <input type="text" id="search-input" class="" placeholder="Search City" />
+        <input type="text" id="search-input" class="" placeholder="Search City" required/>
       </form>
     </div>
     <!-- Aditional elements -->
@@ -367,6 +367,11 @@
 
     <div id="spinner-container" class="spinner-container hidden">
       <div class="spinner"></div>
+    </div>
+    <div id="error-container" class="glassy hidden">
+      <button id="close-error-btn"><i class="fa-solid fa-x"></i></button>
+      <img alt="error image" src="./assets/img/error.png"/>
+      <p id="error-msg"></p>
     </div>
     <div class="author-signature-container" id="author-signature-container">
       <p class="author-signature">

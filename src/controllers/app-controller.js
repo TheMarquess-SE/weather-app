@@ -44,8 +44,8 @@ export default function appController(screen) {
         state.hour = currentConditions;
       }
     } catch (err) {
-      // chore: display the error
       console.log(err);
+      screen.displayError(err);
     } finally {
       screen.update(state);
       screen.toggleSpinner();
@@ -71,7 +71,6 @@ export default function appController(screen) {
       // eslint-disable-next-line prefer-destructuring
       state.hour = state.day.hours[11];
     }
-
     screen.update(state);
   }
 
@@ -100,6 +99,7 @@ export default function appController(screen) {
     } catch (err) {
       // chore: handle error display
       console.log(err);
+      screen.displayError(err);
       initDemo();
     }
   }
