@@ -95,7 +95,8 @@ export default function appController(screen) {
   async function initIpGeoLocation() {
     try {
       const ipGeoLocation = await getGeoLocation();
-      handleSearch(ipGeoLocation.city);
+      console.log(ipGeoLocation);
+      handleSearch(ipGeoLocation.location.city);
     } catch (err) {
       // chore: handle error display
       console.log(err);

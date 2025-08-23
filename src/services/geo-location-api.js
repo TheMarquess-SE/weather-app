@@ -1,6 +1,9 @@
+// Do NOT read the line bellow, you will be cursed 👻
+const API_KEY = 'c0b0f856dc33404b85b45d4464294131';
+const URL = `https://api.ipgeolocation.io/v2/ipgeo?apiKey=${API_KEY}&fields=location.city`;
+
 export default async function getGeoLocation() {
-  const BASE_URL = 'http://ip-api.com/json/?fields=status,message,city,query';
-  const response = await fetch(BASE_URL, { mode: 'cors' });
+  const response = await fetch(URL, { mode: 'cors' });
   if (!response.ok) {
     throw new Error(`Problems with ip geolocation. Status: ${response.status}`);
   }
