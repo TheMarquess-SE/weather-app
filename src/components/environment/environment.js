@@ -18,7 +18,7 @@ export default function environment() {
     } else if (selHours <= sunsetHours && selHours > sunsetHours - 3) {
       bodyEl.style.background = 'var(--bg-summer-evening)';
       htmlEl.style.background = 'var(--bgh-summer-evening)';
-      sunMoonEl.classList.add('sun');
+      sunMoonEl.classList.add('summer-sun');
     } else {
       bodyEl.style.background = 'var(--bg-day)';
       htmlEl.style.background = 'var(--bgh-day)';
@@ -28,6 +28,7 @@ export default function environment() {
     if (hour.conditions.includes('Rain')) {
       bodyEl.style.background = 'var(--bg-rain)';
       htmlEl.style.background = 'var(--bgh-rain)';
+      sunMoonEl.classList.add('hidden');
     }
   }
 
