@@ -91,16 +91,16 @@
 
   background: radial-gradient(
     circle,
-    #ffdab3 0%,       /* soft peach core */
-    #ffb380 35%,      /* warm sunset orange */
-    #ff7e5f 70%,      /* matches the bg base orange */
-    #b373a4 100%      /* ties into the purple tones */
+    #ffdab3 0%,
+    /* soft peach core */ #ffb380 35%,
+    /* warm sunset orange */ #ff7e5f 70%,
+    /* matches the bg base orange */ #b373a4 100% /* ties into the purple tones */
   );
 
   box-shadow:
-    0 0 40px 10px rgba(255, 126, 95, 0.7),   /* glowing orange */
-    0 0 80px 30px rgba(179, 115, 164, 0.5),  /* subtle purple haze */
-    0 0 150px 50px rgba(255, 126, 95, 0.4);  /* soft, wide glow */
+    0 0 40px 10px rgba(255, 126, 95, 0.7),
+    /* glowing orange */ 0 0 80px 30px rgba(179, 115, 164, 0.5),
+    /* subtle purple haze */ 0 0 150px 50px rgba(255, 126, 95, 0.4); /* soft, wide glow */
 
   filter: contrast(1.05) brightness(1.08);
   z-index: 0;
@@ -113,9 +113,9 @@
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    rgba(255, 126, 95, 0.3) 0%,  /* warm orange haze */
-    rgba(179, 115, 164, 0.15) 60%, /* subtle purple haze */
-    rgba(179, 115, 164, 0) 100%   /* transparent fade */
+    rgba(255, 126, 95, 0.3) 0%,
+    /* warm orange haze */ rgba(179, 115, 164, 0.15) 60%,
+    /* subtle purple haze */ rgba(179, 115, 164, 0) 100% /* transparent fade */
   );
   pointer-events: none;
   z-index: 1;

@@ -35,8 +35,8 @@
   cursor: pointer;
 }
 
-.weather-day:hover{
-  border: 3px solid rgba(255 ,255, 255, 0.3);
+.weather-day:hover {
+  border: 3px solid rgba(255, 255, 255, 0.3);
 }
 .weather-day > p {
   width: 60px;
